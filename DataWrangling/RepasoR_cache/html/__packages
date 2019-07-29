@@ -1,0 +1,14 @@
+base
+dplyr
+DBI
+RMySQL
+lubridate
+openxlsx
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+stringr
+forcats

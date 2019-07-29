@@ -1,0 +1,130 @@
+---
+title: "DataWrangling"
+author: "Mafer Pérez"
+date: "24 de julio de 2019"
+output: html_document
+---
+
+##Instalar librerias
+```{r, cache = TRUE}
+#install.packages("dplyr")
+#install.packages("RMySQL")
+#install.packages("lubridate")
+#install.packages("openxlsx")
+#install.packages("tidyverse")
+#install.packages("stringr")
+#install.packages("readr")
+
+```
+
+```{r, cache = TRUE, echo= FALSE}
+require(dplyr)
+require(RMySQL)
+require(lubridate)
+require(openxlsx)
+require(tidyverse)
+require(stringr)
+require(readr)
+
+```
+#Tipos de datos
+```{r, cache = TRUE, echo=TRUE}
+string <- "This is a string"
+string
+class(string)
+nchar(string)
+length(string)
+```
+#Numeros
+#class nos dice si es double, interger
+#La l hace que lo tome como interger
+```{r, cache = TRUE, echo = TRUE}
+number <-234L
+class(number)
+typeof(number)
+```
+#Lógica que son los 0 y 1
+```{r, cache = TRUE, echo = TRUE}
+logical <- FALSE
+logical
+logical*1
+```
+#Factores que pueden haber ordenados
+```{r}
+factor_1 <-c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Wed", "Thu", "Fri", "Sat", "Wed", "Thu", "Wed", "Thu")
+factor_1 <- factor(factor_1)
+factor_1
+as.numeric(factor_1)
+
+```
+
+```{r, cache = TRUE, echo = TRUE}
+factor_2 <-c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Wed", "Thu", "Fri", "Sat", "Wed", "Thu", "Wed", "Thu")
+factor_2 <- ordered(factor_2,levels = c("Mon", "Tue", "Wed","Thu", "Fri", "Sat", "Sun"))
+factor_2
+```
+
+```{r, cache= TRUE, echo = TRUE}
+##Vectors
+sample(x = 1:100, size=8, replace = FALSE)
+samp <- sample(x=1:100, size =8, replace = TRUE)
+samp
+class(samp)
+class(sample(x= 1:5, size = 8, replace  =TRUE))
+vector_1 <- c(1:5, "A")
+vector_1
+c(vector_1, "B","C","D") #Para agregar elementos al vector
+vector_log <- c(1,0,1,0,0,1,3,4)
+as.logical(vector_log)
+
+
+```
+
+```{r, cache = TRUE, echo = TRUE}
+list_1 <-list(vector_1, vector_log)
+names(list_1) <- c("first", "second")
+list_1
+list_1$second
+list_1[[2]]
+```
+#Matrices
+```{r, cache = TRUE, echo = TRUE}
+matrix(data=1, nrow=4, ncol= 5)
+
+```
+```{r, cache= TRUE, echo = TRUE}
+vector_5 <- c(1:5)
+vector_6 <- c(6:10)
+vector_7 <- c(11:15)
+matrix_1 <- cbind(vector_5, vector_6, vector_7)
+matrix_1
+```
+#dataframes
+```{r, cache = TRUE, echo = TRUE}
+df <- data.frame(
+  col1 = c("this", "is", "a", "vector", "of", "strings"),
+  col2 = 1:6,
+  col3 = letters[1:6],
+  stringsAsFactors = FALSE
+)
+df
+nrow(df)
+str(df)
+names(df)
+length(df)
+dim(df)
+head(df,2)
+tail(df,2)
+```
+#FuncionesBaseR
+```{r, cache = TRUE, echo = TRUE}
+df$Column4 <- 11:16
+new_elements <- c("new_string", 19, "z")
+df1 <- rbind(df, new_elements)
+df2 <- rbind(df1, new_elements)
+df
+df1
+df2
+
+```
+

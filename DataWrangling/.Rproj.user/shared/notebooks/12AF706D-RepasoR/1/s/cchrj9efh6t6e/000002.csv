@@ -1,0 +1,5 @@
+"0","df$Column4 <- 11:16"
+"0","new_elements <- c(""new_string"", 19, ""z"")"
+"0","df1 <- rbind(df, new_elements)"
+"0","df2 <- rbind(df1, new_elements)"
+"0","df"

@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564368117981.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "873742459",
+    "id" : "A061EFB8",
+    "lastKnownWriteTime" : 1564368983,
+    "last_content_update" : 1564368984110,
+    "path" : "C:/Users/Mafer/Desktop/DataWrangling/RepasoR.Rmd",
+    "project_path" : "RepasoR.Rmd",
+    "properties" : {
+        "cursorPosition" : "126,3",
+        "scrollLine" : "110",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
