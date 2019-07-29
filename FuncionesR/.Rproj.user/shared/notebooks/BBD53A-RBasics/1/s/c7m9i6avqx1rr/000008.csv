@@ -1,0 +1,8 @@
+"0","generate_df <-function(x) {"
+"0","  df <- data.frame("
+"0","    a= sample(letters, size =10, replace=TRUE),"
+"0","    b = sample(1:10, size=10, replace=TRUE)"
+"0","  )"
+"0","return(df)"
+"0","}"
+"0","generate_df(1)"
