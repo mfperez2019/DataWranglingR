@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564430437409.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "980064540",
+    "id" : "A6BE837",
+    "lastKnownWriteTime" : 1564430736,
+    "last_content_update" : 1564430737002,
+    "path" : "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/FuncionesR/RBasics.Rmd",
+    "project_path" : "RBasics.Rmd",
+    "properties" : {
+        "cursorPosition" : "6,11",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

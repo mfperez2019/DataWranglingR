@@ -1,0 +1,11 @@
+---
+title: "Functions in R"
+author: "Mafer Pérez"
+date: "29 de julio de 2019"
+output: rmarkdown::github_document
+---
+##Functions
+```{r, cache = TRUE, echo= TRUE}
+
+```
+
