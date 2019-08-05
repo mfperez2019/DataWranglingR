@@ -1,0 +1,39 @@
+---
+title: "Lab1"
+author: "Mafer Pérez"
+date: "31 de julio de 2019"
+output: rmarkdown::github_document
+---
+```{r, cache = TRUE, echo= TRUE}
+
+library(readxl)
+library(openxlsx)
+library(tidytext)
+library(dplyr)
+data1 <- read_excel("01-2018.xlsx")
+data1$MES <- 1
+head(data1)
+data2 <- read_excel("02-2018.xlsx")
+data2$MES <- 2
+data3 <- read_excel("03-2018.xlsx")
+data3$MES <- 3
+data4 <- read_excel("04-2018.xlsx")
+data4$MES <- 4
+data5 <- read_excel("05-2018.xlsx")
+data5$MES <- 5
+data6 <- read_excel("06-2018.xlsx")
+data6$MES <- 6
+data7 <- read_excel("07-2018.xlsx")
+data7$MES <- 7
+data8 <- read_excel("08-2018.xlsx")
+data8$MES <- 8
+data9 <- read_excel("09-2018.xlsx")
+data9$MES <- 9
+data10 <- read_excel("10-2018.xlsx")
+data10$MES <- 10
+data11 <- read_excel("11-2018.xlsx")
+data11$MES <- 11
+datalab <- bind_rows(data1, data2, data3, data4, data5, data6, data6, data7, data8, data9, data10, data11)
+head(datalab)
+```
+

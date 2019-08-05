@@ -1,0 +1,15 @@
+---
+title: "Problema 3"
+author: "Mafer Pérez"
+date: "4 de agosto de 2019"
+output: rmarkdown::github_document
+---
+
+```{r, cache = TRUE, echo = TRUE}
+file <- "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/Laboratorio 1/INE_PARQUE_VEHICULAR_080219.txt"
+file
+library(readr)
+parque_vehicular <- read.delim(file, header = TRUE, sep = "|", quote = "", dec = ".")
+parque_vehicular
+```
+

@@ -1,0 +1,28 @@
+---
+title: "Laboratorio"
+author: "Mafer Pérez"
+date: "31 de julio de 2019"
+output: html_document
+---
+
+```{r, cache = TRUE, echo= TRUE}
+files <- list.files(path="lab", pattern = "*.xlsx", full.names = T)
+list(files)
+```
+
+```{r, cache = TRUE, echo = TRUE}
+library(openxlsx)
+lab1 <- lapply(files, function(filename){
+  print(paste("Merging",sep =" "))
+  readWorkbook(filename)
+})
+lab1
+library(dplyr)
+df1 <- bind_rows(lab1)
+```
+
+
+```{r, cache = TRUE, echo = TRUE}
+
+```
+

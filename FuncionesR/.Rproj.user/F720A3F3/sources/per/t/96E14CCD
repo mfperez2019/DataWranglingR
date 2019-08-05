@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564600585864.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "1807388840",
+    "id" : "96E14CCD",
+    "lastKnownWriteTime" : 1564601357,
+    "last_content_update" : 1564601357160,
+    "path" : "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/FuncionesR/Quijote.R",
+    "project_path" : "Quijote.R",
+    "properties" : {
+        "cursorPosition" : "46,22",
+        "scrollLine" : "28",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
