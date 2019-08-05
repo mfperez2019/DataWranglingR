@@ -1,0 +1,58 @@
+---
+title: "Beatles"
+author: "Mafer Pérez"
+date: "29 de julio de 2019"
+output: rmarkdown::github_document
+---
+
+```{r, echo = TRUE}
+library(readr)
+library(tidyverse)
+library(tidytext)
+text_file <- 'C:/Users/Mafer/Downloads/data/data/beatles.txt'
+
+readLines(text_file, n=10, encoding = "UTF-8", skipNul = TRUE)
+
+## Usando readr
+
+beatles_lines <- read_lines(text_file)
+
+beatles_lines
+
+##Performance de funciones
+system.time(readLines(text_file, n=10, encoding = "UTF-8", skipNul=TRUE))
+system.time(readLines(text_file))
+
+##Obtener partes de un string
+substr(beatles_lines,1,10)
+
+##ufuncs o funciones universales
+substr("1234567",1,3)
+
+##Tokenizar
+?unnest_tokens()
+
+beatles_frame <- data_frame(txt=beatles_lines)
+head(beatles_frame)
+beatles_words <- unnest_tokens(beatles_frame, input = txt, output = words, token = "words")
+head(beatles_words)
+
+##ya podemos contar 
+beatles_count <- count(beatles_words, words, sort = TRUE)
+beatles_count
+class(beatles_count)
+str(beatles_frame)
+
+##Limpiar stopwords
+library(quanteda)
+english_stopwords <- data_frame(words = quanteda::stopwords(language = "en"))
+view(english_stopwords)
+
+beatles_words_clean <- anti_join(beatles_words, english_stopwords)
+
+beatles_clean_count <- count(beatles_words_clean, words, sort = TRUE)
+beatles_clean_count
+
+```
+
+
