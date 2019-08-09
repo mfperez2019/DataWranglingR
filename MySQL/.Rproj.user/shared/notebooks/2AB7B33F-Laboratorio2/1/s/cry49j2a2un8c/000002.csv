@@ -1,0 +1,7 @@
+"0","require(RMySQL)"
+"0","connection_name <- ""datawrangling.co4pgsadnasr.us-east-2.rds.amazonaws.com"""
+"0","db_name <- ""dataWrangling"""
+"0","user <- ""dstrack"""
+"0","password <- ""datawrangling2019"""
+"0","drv = dbDriver(""MySQL"")"
+"0","mydb = dbConnect(drv,host=connection_name,dbname=db_name,user=user,pass=password)"

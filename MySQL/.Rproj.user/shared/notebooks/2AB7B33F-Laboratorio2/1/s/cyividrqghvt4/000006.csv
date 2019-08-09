@@ -1,0 +1,3 @@
+"0","#Seleccionar la casa productora, alignment, y raza de la table heroes_information y realizar un conteo de los superheroes que su alignment es good, teniendo mas de 30 publicaciones."
+"0","groupby <- dbGetQuery(mydb, ""SELECT publisher, alignment, race, count(name) FROM heroes_information WHERE alignment = 'good' GROUP BY publisher HAVING COUNT(name) > 30;"")"
+"0","groupby"

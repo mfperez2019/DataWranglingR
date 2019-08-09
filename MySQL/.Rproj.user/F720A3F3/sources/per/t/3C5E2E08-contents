@@ -1,0 +1,97 @@
+---
+title: "Laboratorio2"
+author: "Mafer Pérez"
+date: "7 de agosto de 2019"
+output: rmarkdown::github_document
+---
+
+```{r, echo = FALSE}
+#credenciales ocultas
+```
+
+```{r, echo = FALSE}
+#Solo para ver el nombre de las columnas
+hero <- dbReadTable(mydb, "heroes_information")
+head(hero)
+
+```
+
+```{r}
+#Obtener el nombre del superhéroe y casa publicadora de la tabla heroes_information
+nombre <- dbGetQuery(mydb, "SELECT name, publisher FROM heroes_information;")
+head(nombre)
+```
+
+```{r, echo = FALSE}
+#Obtener las casas publicadoras de la tabla heroes_information.
+publishers <-  dbGetQuery(mydb, "SELECT DISTINCT publisher FROM heroes_information;")
+publishers
+```
+
+```{r, echo = FALSE}
+#Obtener una cuenta de las distintas casas publicadoras de la tabla heroes_information
+publisher <-  dbGetQuery(mydb, "SELECT COUNT(DISTINCT publisher) FROM heroes_information;")
+head(publisher)
+```
+
+```{r, echo = FALSE}
+# Seleccionar todos los campos de la table heroes_information donde el superheroe mide mas de 2 metros.
+altura <-  dbGetQuery(mydb, "SELECT * FROM heroes_information WHERE height > 200;")
+head(altura)
+```
+
+```{r, echo = FALSE}
+#Seleccionar todos los campos de los superheroes que son humanos.
+humano <-  dbGetQuery(mydb, "SELECT * FROM heroes_information WHERE race = 'human';")
+head(humano)
+```
+
+```{r, echo = FALSE}
+#Seleccionar todos los campos de los superheroes que son humanos y miden más de 2 metros.
+humano2m <-  dbGetQuery(mydb, "SELECT * FROM heroes_information WHERE height > 200 AND race = 'human';")
+humano2m
+```
+
+```{r, echo = FALSE}
+#Contar todos los superhéroes que pesen más de 100 y menos de 200.
+peso <- dbGetQuery(mydb, "SELECT count(name) FROM heroes_information WHERE weight > 100 AND weight < 200 ;")
+head(peso)
+```
+
+```{r, echo = FALSE}
+#Cuenten los super heroes que tengan los ojos de color azul o rojo. 
+color <- dbGetQuery(mydb, "SELECT COUNT(`eye color`) FROM heroes_information WHERE `eye color` = 'blue' or `eye color` = 'red';")
+head(color)
+```
+
+```{r, echo = FALSE}
+#Realizar una cuenta inclusiva de los superhéroes que pesen entre 100 y 200.
+peso <- dbGetQuery(mydb, "SELECT name, weight FROM heroes_information WHERE  weight between 100 AND 200;")
+peso
+
+```
+
+```{r,echo = FALSE}
+#Seleccionar el nombre, peso y altura de los superhéroes que pesen mas de 200 y midan mas de 100 ordenados por altura de manera descendente.
+orderby <- dbGetQuery(mydb, "SELECT name, weight, height FROM heroes_information WHERE weight > 200 AND height > 100 ORDER BY height DESC;")
+orderby
+```
+
+```{r, echo = FALSE}
+#Seleccionar el nombre y raza de los superhéroes, ordenarlos por nombre y por raza.
+orderby2 <- dbGetQuery(mydb, "SELECT name, race FROM heroes_information ORDER BY  name, race;")
+orderby2
+```
+
+```{r, echo = FALSE}
+#Seleccionar la casa productora y el genero de los superhéroes y realizar un conteo de los superhéroes que sean mujeres, agrupado por casa productora, ordenado de forma descendente por cuenta.
+groupby <- dbGetQuery(mydb, "SELECT publisher, gender, count(gender) FROM heroes_information WHERE gender = 'female' GROUP BY publisher ORDER BY count(gender) desc ;")
+groupby
+```
+
+```{r, echo = FALSE}
+#Seleccionar la casa productora, alignment, y raza de la table heroes_information y realizar un conteo de los superheroes que su alignment es good, teniendo mas de 30 publicaciones.
+groupby <- dbGetQuery(mydb, "SELECT publisher, alignment, race, count(name) FROM heroes_information WHERE alignment = 'good' GROUP BY publisher HAVING COUNT(name) > 30;")
+groupby
+```
+

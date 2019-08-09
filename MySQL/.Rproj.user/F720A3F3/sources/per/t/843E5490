@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565032108213.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "2428161687",
+    "id" : "843E5490",
+    "lastKnownWriteTime" : 1565035916,
+    "last_content_update" : 1565035916333,
+    "path" : "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/MySQL/ClaseMySQL.Rmd",
+    "project_path" : "ClaseMySQL.Rmd",
+    "properties" : {
+        "cursorPosition" : "25,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

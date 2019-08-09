@@ -1,0 +1,3 @@
+"0","#Cuenten los super heroes que tengan los ojos de color azul o rojo. "
+"0","color <- dbGetQuery(mydb, ""SELECT COUNT(`eye color`) FROM heroes_information WHERE `eye color` = 'blue' or `eye color` = 'red';"")"
+"0","head(color)"

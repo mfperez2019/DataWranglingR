@@ -1,0 +1,69 @@
+---
+title: "MySQL"
+author: "Mafer Pérez"
+date: "5 de agosto de 2019"
+output: html_document
+---
+
+```{r, echo = FALSE}
+
+require(RMySQL)
+connection_name <- "datawrangling.co4pgsadnasr.us-east-2.rds.amazonaws.com"
+db_name <- "dataWrangling"
+user <- "dstrack"
+password <- "datawrangling2019"
+drv = dbDriver("MySQL")
+mydb = dbConnect(drv,host=connection_name,dbname=db_name,user=user,pass=password)
+summary(mydb)
+dbListTables(mydb)
+
+dbListFields(mydb, "heroes_information")
+
+### como son esas columnas
+dbColumnInfo(mydb, "heroes_information")
+
+### Lee la información completa de una tabla
+hero <- dbReadTable(mydb, "heroes_information")
+head(hero)
+
+###dbGetQuery()
+hero <- dbGetQuery(mydb, "SELECT * FROM heroes_information;")
+head(hero)
+str(hero)
+
+Query <- "SELECT * FROM heroes_information;"
+hero <- dbGetQuery(mydb, Query)
+head(hero)
+
+### Para no extraer toda la información el send lo envía y fetch lo traer de regreso
+Query <- dbSendQuery(mydb, "SELECT * FROM heroes_information;")
+hero <- dbFetch(Query, n=10)
+hero
+
+dbGetInfo(Query)
+
+###Cuantas filas me va a retornar mi query?
+dbGetRowCount(Query)
+
+##dbWriteTable()
+x <- 1:10
+y <- letters[1:10]
+test <- data.frame(x,y, stringsAsFactors = FALSE)
+dbWriteTable(mydb, "test20170479", test, row.names = FALSE)
+
+dbListTables(mydb)
+
+###Sobreescribir una tabla
+x <- sample(100,10)
+y <- letters[11:20]
+test2 <- data.frame(x,y, stringsAsFactors = FALSE)
+dbWriteTable(mydb, "test20170479", test2, overwrite = TRUE)
+
+##append a la tabla
+x <- sample(100,10)
+y <- letters[6:15]
+test3 <- data.frame(x,y, stringsAsFactors = FALSE)
+dbWriteTable(mydb, "test20170479", test, test3, append = TRUE, row.names = FALSE)
+
+```
+

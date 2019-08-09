@@ -1,0 +1,3 @@
+"0","#Contar todos los superhéroes que pesen más de 100 y menos de 200."
+"0","peso <- dbGetQuery(mydb, ""SELECT count(name) FROM heroes_information WHERE weight > 100 AND weight < 200 ;"")"
+"0","head(peso)"

@@ -1,0 +1,3 @@
+"0","#Obtener una cuenta de las distintas casas publicadoras de la tabla heroes_information"
+"0","publisher <-  dbGetQuery(mydb, ""SELECT COUNT(DISTINCT publisher) FROM heroes_information;"")"
+"0","head(publisher)"

@@ -1,0 +1,3 @@
+"0","#Obtener las casas publicadoras de la tabla heroes_information."
+"0","publishers <-  dbGetQuery(mydb, ""SELECT DISTINCT publisher FROM heroes_information;"")"
+"0","publishers"

@@ -1,0 +1,3 @@
+"0","# Seleccionar todos los campos de la table heroes_information donde el superheroe mide mas de 2 metros."
+"0","altura <-  dbGetQuery(mydb, ""SELECT * FROM heroes_information WHERE height > 200;"")"
+"0","head(altura)"

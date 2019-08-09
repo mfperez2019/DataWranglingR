@@ -1,0 +1,3 @@
+"0","#Seleccionar el nombre y raza de los superhéroes, ordenarlos por nombre y por raza."
+"0","orderby2 <- dbGetQuery(mydb, ""SELECT name, race FROM heroes_information ORDER BY  name, race;"")"
+"0","orderby2"
