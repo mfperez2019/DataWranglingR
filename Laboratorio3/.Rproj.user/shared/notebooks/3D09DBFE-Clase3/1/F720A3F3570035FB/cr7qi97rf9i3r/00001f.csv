@@ -1,0 +1,6 @@
+"0","##Una posible Solución"
+"0","players_score %>% "
+"0","  filter(Goals > 0) %>% "
+"0","  mutate(Goal_Rate = Mins/Goals) %>% "
+"0","  arrange(desc(Goal_Rate)) %>% "
+"0","  distinct()"

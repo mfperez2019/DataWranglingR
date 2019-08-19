@@ -1,0 +1,39 @@
+"0","library(tidyverse)"
+"0","library(readr)"
+"0","players_score <- read_csv(file = ""C:/Users/Mafer/Desktop/GitHub/DataWranglingR/Tidy/football-world-cup-2018-dataset/Players_Score.csv"")"
+"2","Parsed with column specification:
+cols(
+  Rank = col_integer(),
+  player = col_character(),
+  club = col_character(),
+  age = col_integer(),
+  Apps = col_character(),
+  Mins = col_integer(),
+  Goals = col_character(),
+  Assists = col_character(),
+  Yel = col_character(),
+  Red = col_character(),
+  SpG = col_character(),
+  PS = col_double(),
+  AerialsWon = col_character(),
+  MotM = col_character(),
+  Rating = col_double()
+)
+"
+"0"," view(players_score)"
+"0","players_score$cambio<-str_extract_all(players_score$Apps, ""\\([^)]*\\)"","""")"
+"0","players_score$cambio<-str_extract_all(players_score$cambio,""[0-9]+"")"
+"0","players_score$Apps<-str_replace_all(players_score$Apps, ""\\([^)]*\\)"","""")"
+"0","### Volver todas las variables numericas a formato numerico"
+"0","numbers <- c(""age"", ""Apps"", ""cambio"", ""Goals"", ""Assists"", ""Yel"", ""Red"", ""SpG"", ""PS"", ""AerialsWon"", ""MotM"", ""Rating"")"
+"0","players_score[numbers] <- lapply(players_score[numbers], as.numeric)"
+"2","NAs introduced by coercion"
+"2","NAs introduced by coercion"
+"2","NAs introduced by coercion"
+"2","NAs introduced by coercion"
+"2","NAs introduced by coercion"
+"2","NAs introduced by coercion"
+"2","NAs introduced by coercion"
+"0","head(players_score) %>% view()"
+"0","players_score[numbers] <- players_score[numbers] %>% replace_na(list(age=0, Goals=0, Assists=0, Yel=0, Red=0, SpG=0, PS=0, AerialsWon=0, MotM=0, Rating=0, cambio=0))"
+"0","players_score"

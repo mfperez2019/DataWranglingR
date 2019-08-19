@@ -1,0 +1,113 @@
+---
+title: "Clase3EXTRA"
+author: "Mafer Pérez"
+date: "12 de agosto de 2019"
+output: rmarkdown::github_document
+---
+
+```{r, echo = TRUE}
+library(tidyverse)
+library(readr)
+players_score <- read_csv(file = "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/Tidy/football-world-cup-2018-dataset/Players_Score.csv")
+ view(players_score)
+
+players_score$cambio<-str_extract_all(players_score$Apps, "\\([^)]*\\)","")
+players_score$cambio<-str_extract_all(players_score$cambio,"[0-9]+")
+players_score$Apps<-str_replace_all(players_score$Apps, "\\([^)]*\\)","")
+
+### Volver todas las variables numericas a formato numerico
+numbers <- c("age", "Apps", "cambio", "Goals", "Assists", "Yel", "Red", "SpG", "PS", "AerialsWon", "MotM", "Rating")
+players_score[numbers] <- lapply(players_score[numbers], as.numeric)
+head(players_score) %>% view()
+
+players_score[numbers] <- players_score[numbers] %>% replace_na(list(age=0, Goals=0, Assists=0, Yel=0, Red=0, SpG=0, PS=0, AerialsWon=0, MotM=0, Rating=0, cambio=0))
+players_score
+
+###filter
+filter(players_score, club=="Real Madrid", age <30)
+
+filter(players_score, club %in% c("Real Madrid", "Barcelona", age <30))
+
+###prmer filtro pero con pope
+players_score %>% 
+  filter(club=="Real Madrid")
+
+###Seleccionamos unicamente las columnas de club, edad y filtreamos por club
+filter(select(players_score,club,age), club=="Real Madrid")
+
+##Seleccionemos únicamente las columnas de club y edad y filtremos por club
+players_score %>% 
+  select(club,age) %>% 
+  filter(club== "Real Madrid")
+
+##Rate entre minuto sobre goal
+players_score %>% 
+  mutate(Goal_Rate = Mins/Goals) %>% 
+  arrange(desc(Goal_Rate))
+
+##Una posible Solución
+players_score %>% 
+  filter(Goals > 0) %>% 
+  mutate(Goal_Rate = Mins/Goals) %>% 
+  arrange(desc(Goal_Rate)) %>% 
+  distinct()
+
+###equipo goleador
+players_score %>% 
+  select(club, Goals) %>% 
+  group_by(club) %>% 
+  summarise(team_goals = sum(Goals)) %>% 
+  arrange(desc(team_goals))
+
+players_score %>% 
+  select(player, PS, club)
+
+#### AQUI  EMPIEZA LO EXTRA
+#1 Quien es el jugador con el mejor porcentaje de pase y de cual club es
+view(players_score)
+players_score %>% 
+  select(player,club,PS ) %>% 
+  arrange(desc(PS)) %>% 
+  distinct() 
+#Respuesta: Thiago Silva de 	Paris Saint Germain	con un PS de 96.1
+
+#2 Quien es el jugador que mas veces ha sido Man of Match y su indice de goles por minuto
+players_score %>% 
+  select(player,MotM,Goals,Mins ) %>% 
+  mutate(Golespormin = Goals/Mins) %>% 
+  arrange(desc(MotM)) %>% 
+  distinct()
+# RESPUESTA: Lionel Messi	que ha sido 22 veces MoM	 y su indice es de	0.0113446780
+
+#3 Quien es el jugador mas joven con mas goles anotados a traves de todo el set de datos
+players_score %>% 
+  select(player,age,Goals ) %>% 
+  arrange(age) %>% 
+  distinct()
+#RESPUESTA: Rodrygo	de 17 años con 5 goles
+
+#4 Quien es el jugador que entra de cambio mas efectivo al momento de anotar goles
+players_score %>% 
+  select(player,Mins,Goals ) %>% 
+  arrange((Mins)) %>% 
+  distinct()
+#Respuesta:  Andreas Cornelius y anota 2 goles.
+
+#5. Quien es el jugador que es mas sucio
+
+players_score %>% 
+  select(player,Yel,Red ) %>% 
+  filter(Red >2) %>% 
+  arrange(desc(Yel)) %>% 
+  distinct()
+# De los jugadores con 2 tarjetas rojas,  Hassan Yebda y Dusko Tosic que más tarjetas amarillas
+
+#6. Cual es el mejor equipo de todos
+players_score %>% 
+  select(club,Goals) %>% 
+  arrange(desc(Goals)) %>% 
+  distinct()
+#RESPUESTA: Barcelona tienen más goles
+
+
+```

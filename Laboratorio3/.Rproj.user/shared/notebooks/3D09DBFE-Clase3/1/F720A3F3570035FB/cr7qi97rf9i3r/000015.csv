@@ -1,0 +1,1 @@
+"0","filter(players_score, club %in% c(""Real Madrid"", ""Barcelona"", age <30))"

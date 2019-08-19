@@ -1,0 +1,7 @@
+"0","#### AQUI  EMPIEZA LO EXTRA"
+"0","#1 Quien es el jugador con el mejor porcentaje de pase y de cual club es"
+"0","view(players_score)"
+"0","players_score %>% "
+"0","  select(player,club,PS ) %>% "
+"0","  arrange(desc(PS)) %>% "
+"0","  distinct() "

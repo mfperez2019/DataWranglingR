@@ -2,7 +2,7 @@
 title: "Clase3"
 author: "Mafer Pérez"
 date: "12 de agosto de 2019"
-output: html_document
+output: rmarkdown::github_document
 ---
 
 ```{r, echo = TRUE}
@@ -61,4 +61,51 @@ players_score %>%
 
 players_score %>% 
   select(player, PS, club)
+
+#### AQUI  EMPIEZA LO EXTRA
+#1 Quien es el jugador con el mejor porcentaje de pase y de cual club es
+view(players_score)
+players_score %>% 
+  select(player,club,PS ) %>% 
+  arrange(desc(PS)) %>% 
+  distinct() 
+#Respuesta: Thiago Silva de 	Paris Saint Germain	con un PS de 96.1
+
+#2 Quien es el jugador que mas veces ha sido Man of Match y su indice de goles por minuto
+players_score %>% 
+  select(player,MotM,Goals,Mins ) %>% 
+  mutate(Golespormin = Goals/Mins) %>% 
+  arrange(desc(MotM)) %>% 
+  distinct()
+# RESPUESTA: Lionel Messi	que ha sido 22 veces MoM	 y su indice es de	0.0113446780
+
+#3 Quien es el jugador mas joven con mas goles anotados a traves de todo el set de datos
+players_score %>% 
+  select(player,age,Goals ) %>% 
+  arrange(age) %>% 
+  distinct()
+#RESPUESTA: Rodrygo	de 17 años con 5 goles
+
+#4 Quien es el jugador que entra de cambio mas efectivo al momento de anotar goles
+players_score %>% 
+  select(player,Mins,Goals ) %>% 
+  arrange((Mins)) %>% 
+  distinct()
+#Respuesta:  Andreas Cornelius y anota 2 goles.
+
+#5. Quien es el jugador que es mas sucio
+
+players_score %>% 
+  select(player,Yel,Red ) %>% 
+  filter(Red >2) %>% 
+  arrange(desc(Yel)) %>% 
+  distinct()
+# De los jugadores con 2 tarjetas rojas,  Hassan Yebda y Dusko Tosic que más tarjetas amarillas
+
+#6. Cual es el mejor equipo de todos
+players_score %>% 
+  select(club,Goals) %>% 
+  arrange(desc(Goals)) %>% 
+  distinct()
+#RESPUESTA: Barcelona tienen más goles
 ```

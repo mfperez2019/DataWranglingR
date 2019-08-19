@@ -1,0 +1,7 @@
+"0","#Respuesta:  Andreas Cornelius y anota 2 goles."
+"0","#5. Quien es el jugador que es mas sucio"
+"0","players_score %>% "
+"0","  select(player,Yel,Red ) %>% "
+"0","  filter(Red >2) %>% "
+"0","  arrange(desc(Yel)) %>% "
+"0","  distinct()"

@@ -1,0 +1,6 @@
+"0","# RESPUESTA: Lionel Messi	que ha sido 22 veces MoM	 y su indice es de	0.0113446780"
+"0","#3 Quien es el jugador mas joven con mas goles anotados a traves de todo el set de datos"
+"0","players_score %>% "
+"0","  select(player,age,Goals ) %>% "
+"0","  arrange(age) %>% "
+"0","  distinct()"

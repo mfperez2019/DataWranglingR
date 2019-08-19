@@ -1,0 +1,4 @@
+"0","##Seleccionemos únicamente las columnas de club y edad y filtremos por club"
+"0","players_score %>% "
+"0","  select(club,age) %>% "
+"0","  filter(club== ""Real Madrid"")"

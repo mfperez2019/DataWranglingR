@@ -1,0 +1,4 @@
+"0","##Rate entre minuto sobre goal"
+"0","players_score %>% "
+"0","  mutate(Goal_Rate = Mins/Goals) %>% "
+"0","  arrange(desc(Goal_Rate))"

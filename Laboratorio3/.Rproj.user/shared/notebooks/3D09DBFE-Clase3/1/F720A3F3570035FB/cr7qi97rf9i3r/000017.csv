@@ -1,0 +1,3 @@
+"0","###prmer filtro pero con pope"
+"0","players_score %>% "
+"0","  filter(club==""Real Madrid"")"

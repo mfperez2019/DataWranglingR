@@ -1,0 +1,7 @@
+"0","#Respuesta: Thiago Silva de 	Paris Saint Germain	con un PS de 96.1"
+"0","#2 Quien es el jugador que mas veces ha sido Man of Match y su indice de goles por minuto"
+"0","players_score %>% "
+"0","  select(player,MotM,Goals,Mins ) %>% "
+"0","  mutate(Golespormin = Goals/Mins) %>% "
+"0","  arrange(desc(MotM)) %>% "
+"0","  distinct()"

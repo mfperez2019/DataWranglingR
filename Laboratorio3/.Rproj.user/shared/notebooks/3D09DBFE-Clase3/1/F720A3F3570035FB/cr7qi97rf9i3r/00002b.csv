@@ -1,0 +1,6 @@
+"0","#RESPUESTA: Rodrygo	de 17 años con 5 goles"
+"0","#4 Quien es el jugador que entra de cambio mas efectivo al momento de anotar goles"
+"0","players_score %>% "
+"0","  select(player,Mins,Goals ) %>% "
+"0","  arrange((Mins)) %>% "
+"0","  distinct()"

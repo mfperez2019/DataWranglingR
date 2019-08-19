@@ -1,0 +1,6 @@
+"0","###equipo goleador"
+"0","players_score %>% "
+"0","  select(club, Goals) %>% "
+"0","  group_by(club) %>% "
+"0","  summarise(team_goals = sum(Goals)) %>% "
+"0","  arrange(desc(team_goals))"

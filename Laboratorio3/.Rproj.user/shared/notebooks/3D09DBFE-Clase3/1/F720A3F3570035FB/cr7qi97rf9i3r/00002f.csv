@@ -1,0 +1,6 @@
+"0","# De los jugadores con 2 tarjetas rojas,  Hassan Yebda y Dusko Tosic que más tarjetas amarillas"
+"0","#6. Cual es el mejor equipo de todos"
+"0","players_score %>% "
+"0","  select(club,Goals) %>% "
+"0","  arrange(desc(Goals)) %>% "
+"0","  distinct()"

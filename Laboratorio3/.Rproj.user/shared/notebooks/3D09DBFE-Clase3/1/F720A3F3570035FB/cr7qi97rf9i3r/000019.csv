@@ -1,0 +1,2 @@
+"0","###Seleccionamos unicamente las columnas de club, edad y filtreamos por club"
+"0","filter(select(players_score,club,age), club==""Real Madrid"")"
