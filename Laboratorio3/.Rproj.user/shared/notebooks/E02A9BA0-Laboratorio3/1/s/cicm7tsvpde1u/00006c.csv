@@ -1,0 +1,3 @@
+"0","faltatotal %>% select(PILOTO, CLIENTE, MES, CANTIDAD) %>% "
+"0","  count(CLIENTE) %>% "
+"0","  arrange(desc(CLIENTE))"

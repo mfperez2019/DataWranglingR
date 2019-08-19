@@ -1,0 +1,5 @@
+"0","#¿Nos están robando los pilotos?"
+"0","datos %>% "
+"0","  select(CLIENTE,Q, CANTIDAD, MES, UBICACION, UNIDAD) %>% "
+"0","  group_by(CLIENTE) %>% "
+"0","  count(CLIENTE)"

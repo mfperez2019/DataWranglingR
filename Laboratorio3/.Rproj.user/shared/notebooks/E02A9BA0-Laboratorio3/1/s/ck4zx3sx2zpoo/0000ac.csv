@@ -1,0 +1,7 @@
+"0","#Eficiencia de los pilotos en base a los viajes"
+"0","viajes_piloto <- datos %>% "
+"0","  select(PILOTO,COD_VIAJE) %>%"
+"0","  group_by(PILOTO) %>% "
+"0","  summarise(viajes = n()/2180) %>%"
+"0","  arrange(desc(viajes)) "
+"0","viajes_piloto"

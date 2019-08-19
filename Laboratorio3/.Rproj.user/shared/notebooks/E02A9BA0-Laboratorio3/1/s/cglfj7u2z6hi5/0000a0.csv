@@ -1,0 +1,1 @@
+"0","datos %>% select(UNIDAD, UBICACION,COD_VIAJE) %>% group_by(UBICACION, UNIDAD) %>% summarise(numeroubicacion = n_distinct(COD_VIAJE)) %>% distinct()"

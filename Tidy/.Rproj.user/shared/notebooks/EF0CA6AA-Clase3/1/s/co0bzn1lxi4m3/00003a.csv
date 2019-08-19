@@ -1,0 +1,7 @@
+"0","players_score %>% 
+  select(player, PS, club) %>% 
+  filter(PS = max(PS))
+"
+"2","Error: `PS` (`PS = max(PS)`) must not be named, do you need `==`?
+[90mCall `rlang::last_error()` to see a backtrace[39m
+"

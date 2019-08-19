@@ -1,0 +1,4 @@
+"0","#La cantidad mayor es para camiones grandes"
+"0","#Cantidad de viajes por tipo camion"
+"0","datos %>% select(CLIENTE, Q, CANTIDAD,UNIDAD, MES) %>%"
+"0","  count(UNIDAD) "

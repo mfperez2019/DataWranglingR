@@ -1,0 +1,2 @@
+"0","clientes <- datos %>% select(CLIENTE, Q, COD_VIAJE) %>% group_by(CLIENTE) %>% summarise(Q = sum(Q), cantidadviajes = n()) %>% arrange(desc(Q)) %>% ungroup()"
+"0","clientes"

@@ -1,0 +1,8 @@
+"0","datos$CLIENTE <- gsub(""|||"", """", datos$CLIENTE, fixed=TRUE)"
+"0","datos$CLIENTE <- gsub(""/"", """", datos$CLIENTE, fixed=TRUE)"
+"0","datos$CLIENTE <- gsub(""\\s+"", "" "", str_trim(datos$CLIENTE))"
+"0","datos$CLIENTE <- gsub(""Faltante"", """", datos$CLIENTE, fixed=TRUE)"
+"0","datos$CLIENTE <- gsub(""FALTANTE"", """", datos$CLIENTE, fixed=TRUE)"
+"0","datos$CLIENTE <- gsub(""DEVOLUCION"", """", datos$CLIENTE,fixed=TRUE)"
+"0","datos$CLIENTE <- gsub(""Despacho a cliente"", """", datos$CLIENTE,fixed=TRUE)"
+"0","datos %>% select(CLIENTE) %>% group_by(CLIENTE) %>% count(CLIENTE)"

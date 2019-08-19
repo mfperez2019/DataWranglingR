@@ -1,0 +1,5 @@
+"0","faltatotal %>% select(PILOTO, CLIENTE, MES, CANTIDAD) %>% "
+"0","  filter(stringr::str_detect(CLIENTE, 'EL PINCHE')) %>%"
+"0","  group_by(MES) %>% "
+"0","  count(CLIENTE) %>% "
+"0","  arrange(desc(CLIENTE))"

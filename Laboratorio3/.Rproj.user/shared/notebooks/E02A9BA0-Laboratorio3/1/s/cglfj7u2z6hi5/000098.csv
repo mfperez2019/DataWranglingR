@@ -1,0 +1,4 @@
+"0","datos %>%  select(UNIDAD, Q, CANTIDAD, MES) %>% "
+"0","  filter(UNIDAD== ""Camion Pequeño"") %>% "
+"0","  group_by(MES) %>% "
+"0","  summarise(PCANTIDAD=mean(CANTIDAD), TCANTIDAD= sum(CANTIDAD))"

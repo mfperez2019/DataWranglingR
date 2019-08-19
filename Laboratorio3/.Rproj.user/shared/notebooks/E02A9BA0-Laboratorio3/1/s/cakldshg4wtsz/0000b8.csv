@@ -1,0 +1,6 @@
+"0","clientes1 <- datos %>% "
+"0","  select(CLIENTE) %>% "
+"0","  distinct() %>% "
+"0","  count()"
+"0","clientes2 <- clientes1*0.2"
+"0","clientes2"

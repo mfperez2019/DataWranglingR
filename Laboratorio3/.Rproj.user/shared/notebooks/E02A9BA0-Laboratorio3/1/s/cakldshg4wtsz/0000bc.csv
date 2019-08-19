@@ -1,0 +1,4 @@
+"0","#Luego cuanto es el 80% de los ingresos"
+"0","ventas_80 <- clientes_20 %>% "
+"0","  summarise(ventas= sum(TotalQ))"
+"0","ventas_80"

@@ -1,0 +1,1 @@
+"0","datos %>% select(UNIDAD, MES, UBICACION, COD_VIAJE) %>% group_by(UNIDAD, MES) %>% count(UNIDAD) %>% distinct()"

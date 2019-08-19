@@ -1,0 +1,4 @@
+"0","#Los viajes que se hacen para cada cliente no están disminuyendo solo fluctúan"
+"0","#La tarifa actual es de Q4 por cada cosa"
+"0","datos %>% select(CLIENTE,MES,CANTIDAD) %>% group_by(CLIENTE, MES) %>% "
+"0","  summarise(TotalCantidad= sum(CANTIDAD))"

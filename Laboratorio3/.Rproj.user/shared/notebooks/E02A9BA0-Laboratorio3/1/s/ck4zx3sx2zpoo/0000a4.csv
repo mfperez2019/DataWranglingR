@@ -1,0 +1,8 @@
+"0","#Mejores Pilotos y más eficientes"
+"0","library(ggplot2)"
+"0","ingreso_unidad <- datos %>% "
+"0","  select(UNIDAD,Q) %>% "
+"0","  group_by(UNIDAD) %>% "
+"0","  summarise(TotalQ = sum(Q)) %>% "
+"0","  arrange(desc(TotalQ)) "
+"0","ingreso_unidad"

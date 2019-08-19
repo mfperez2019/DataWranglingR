@@ -1,0 +1,4 @@
+"0","#Para ver si las tarifas actuales son aceptadas por el cliente"
+"0","datos %>% select(CLIENTE,MES) %>% group_by(MES) %>% "
+"0","  count(CLIENTE) %>% distinct() %>% "
+"0","  arrange(CLIENTE)"

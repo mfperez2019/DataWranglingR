@@ -1,0 +1,13 @@
+salario <- 40000
+aportacion <- 0.04
+edadinicio <- 22
+edadfinal <- 52
+inverson_inicial <- 14500
+tasa1 <- 0
+tasa2 <- 0.10
+media <- 0.10
+desvesta <- 0.05
+
+salariosfuturos <- runif(30, tasa1, tasa2)
+
+

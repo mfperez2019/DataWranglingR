@@ -1,0 +1,5 @@
+"0","#Son 13 clientes"
+"0","datos %>% select(CLIENTE, Q, CANTIDAD,UNIDAD, MES) %>%"
+"0","  group_by(UNIDAD) %>% "
+"0","  summarise(TOTALUNIDAD = sum(CANTIDAD)) %>%"
+"0","  arrange(desc(TOTALUNIDAD))"

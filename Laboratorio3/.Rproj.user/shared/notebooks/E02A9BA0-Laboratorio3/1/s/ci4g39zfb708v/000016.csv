@@ -1,0 +1,20 @@
+"0","library(readr)"
+"0","datos <- read_csv(file = ""lab3/tabla_completa.csv"",col_names = TRUE, locale = locale(encoding = ""latin1""))"
+"2","Missing column names filled in: 'X1' [1]"
+"2","Parsed with column specification:
+cols(
+  X1 = col_integer(),
+  COD_VIAJE = col_integer(),
+  CLIENTE = col_character(),
+  UBICACION = col_integer(),
+  CANTIDAD = col_integer(),
+  PILOTO = col_character(),
+  Q = col_double(),
+  CREDITO = col_integer(),
+  UNIDAD = col_character(),
+  MES = col_character(),
+  ANIO = col_integer()
+)
+"
+"0","datos$X1 <- NULL"
+"0","datos"

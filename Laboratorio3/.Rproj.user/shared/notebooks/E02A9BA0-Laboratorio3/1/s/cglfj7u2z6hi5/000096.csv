@@ -1,0 +1,6 @@
+"0","#Los viajes: 1211 grandes, 605 pequeños, 364 panel"
+"0","#Cual cantidad de pedidos está aumentando si la de "
+"0","datos %>%  select(UNIDAD, Q, CANTIDAD, MES) %>% "
+"0","  filter(UNIDAD== ""Camion Grande"") %>% "
+"0","  group_by(MES) %>% "
+"0","  summarise(PCANTIDAD=mean(CANTIDAD), TCANTIDAD= sum(CANTIDAD) )"

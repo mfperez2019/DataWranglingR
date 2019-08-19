@@ -1,0 +1,8 @@
+"0","#PILOTOS Angel, Felipe, #Fernando, Hector Aragones, Hector Giron, #Ismael,Juan, Luis, #Pedro"
+"0","#Con esto quiero saber cuántos viajes hace cada piloto en un mes"
+"0","empleados <- datos %>% "
+"0","  select(PILOTO, CLIENTE,Q, CANTIDAD, MES, UBICACION, UNIDAD) %>% "
+"0","  filter(MES== ""01"")%>% "
+"0","  group_by(PILOTO) %>% "
+"0","  count(PILOTO) "
+"0","empleados"

@@ -1,0 +1,2 @@
+"0","#Para saber cuanto clientes son"
+"0","datos %>% select(CLIENTE) %>% group_by(CLIENTE) %>% count(CLIENTE)"

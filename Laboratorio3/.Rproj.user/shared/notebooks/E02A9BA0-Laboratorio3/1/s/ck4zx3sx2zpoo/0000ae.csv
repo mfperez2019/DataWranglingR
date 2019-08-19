@@ -1,0 +1,2 @@
+"0","ggplot(viajes_piloto, aes(fill=PILOTO, y=viajes, x=PILOTO)) + "
+"0","    geom_bar(position=""dodge"", stat=""identity"")"

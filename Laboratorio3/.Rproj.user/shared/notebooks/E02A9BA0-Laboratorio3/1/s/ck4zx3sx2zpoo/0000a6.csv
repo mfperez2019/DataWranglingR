@@ -1,0 +1,6 @@
+"0","numero_viajes <- datos %>% "
+"0","  select(UNIDAD,COD_VIAJE) %>% "
+"0","  group_by(UNIDAD) %>% "
+"0","  summarise(viajes = n()) %>%"
+"0","  arrange(desc(viajes)) "
+"0","numero_viajes"

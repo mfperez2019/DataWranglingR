@@ -1,0 +1,62 @@
+require(dplyr)
+require(openxlsx)
+require(readr)
+## Delim Solution
+sat <- readr::read_delim(
+  file = "~/Downloads/INE_PARQUE_VEHICULAR_080219.txt", 
+  delim = "|", 
+  col_names = TRUE, 
+  quote = "'", 
+  locale = readr::locale(encoding = "latin1")
+)
+
+## Mode Solution
+mode <- function(x){
+  if(is.null(x)|class(x)=="character"){return("Please provide a valid numeric vector")} else {
+    uq <- unique(x)
+    bincount <- tabulate(match(x, uq))
+    return(uq[which(bincount==max(bincount))]) 
+  }
+}
+
+vec1 <- sample(x = 1:100, size = 50, replace = TRUE)
+vec2 <- sample(x = 1:100, size = 50, replace = TRUE)
+vec3 <- sample(x = 1:100, size = 50, replace = TRUE)
+vec4 <- sample(x = 1:100, size = 50, replace = TRUE)
+
+list1 <- list(vec1, vec2, vec3, vec4)
+
+lapply(list1, mode)
+
+## CSV Solution
+location <- "~/Documents/drive-download-20190805T191730Z-001/"
+drive_files <- list.files(location)
+
+read_data <- function(file, path, columns){
+  col <- quo(columns)
+  df <- read.xlsx(xlsxFile = paste(path, file, sep = ""))
+  df <- df %>% select(!!col)
+  df$MES <- substr(file, 1, 2)
+  df$ANIO <- substr(file, 4, 7)
+  return(df)
+}
+
+list_dfs <- lapply(drive_files, read_data, location, c("COD_VIAJE", "CLIENTE", "UBICACION","CANTIDAD", "PILOTO", "Q", "CREDITO", "UNIDAD"))
+
+system.time(
+  df <- list_dfs %>% 
+    bind_rows()
+)
+
+system.time(
+  df <- do.call(rbind, list_dfs)
+)
+
+system.time(
+  df <- lapply(list_dfs, rbind)
+)
+
+
+
+
+

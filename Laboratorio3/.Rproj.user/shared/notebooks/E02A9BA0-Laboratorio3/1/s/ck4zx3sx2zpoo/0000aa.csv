@@ -1,0 +1,2 @@
+"0","ggplot(ingreso_viaje, aes(fill=UNIDAD, y=TotalQ, x=UNIDAD)) + "
+"0","    geom_bar(position=""dodge"", stat=""identity"")"

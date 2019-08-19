@@ -1,0 +1,2 @@
+"0","falta2 = data.frame(datos[grep(""FALTANTE"",datos$CLIENTE),])"
+"0","falta2"

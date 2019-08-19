@@ -1,0 +1,6 @@
+"0","ingreso_viaje <- datos %>% "
+"0","  select(UNIDAD,Q, COD_VIAJE) %>% "
+"0","  group_by(UNIDAD) %>% "
+"0","  summarise(TotalQ = sum(Q)/n()) %>% "
+"0","  arrange((TotalQ))"
+"0","ingreso_viaje"

@@ -1,0 +1,4 @@
+"0","datos %>%  select(UNIDAD, Q, CANTIDAD, MES) %>% "
+"0","  filter(UNIDAD== ""Panel"") %>% "
+"0","  group_by(MES) %>% "
+"0","  summarise(PCANTIDAD=sum(CANTIDAD), TCANTIDAD= sum(CANTIDAD))"

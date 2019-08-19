@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565810918760.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "394003134",
+    "id" : "65EB50BA",
+    "lastKnownWriteTime" : 1565810914,
+    "last_content_update" : 1565810914,
+    "path" : "C:/Users/Mafer/Downloads/Laboratorio_1_Solucion_2.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "9,44",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
