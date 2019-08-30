@@ -82,25 +82,6 @@ dfg
 
 ``` r
 library(plyr)
-```
-
-    ## -------------------------------------------------------------------------
-
-    ## You have loaded plyr after dplyr - this is likely to cause problems.
-    ## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
-    ## library(plyr); library(dplyr)
-
-    ## -------------------------------------------------------------------------
-
-    ## 
-    ## Attaching package: 'plyr'
-
-    ## The following objects are masked from 'package:dplyr':
-    ## 
-    ##     arrange, count, desc, failwith, id, mutate, rename, summarise,
-    ##     summarize
-
-``` r
 library(readr)
 raw <- read_csv(file = "raw.csv") %>% select(-X1)
 ```
@@ -139,23 +120,12 @@ raw$sexo <- str_sub(raw$age, start = 1, end = 1)
 raw$edad <- str_sub(raw$age, start=2)
 raw$edad <- revalue(raw$edad, c('014' = "0-14", '1524' = "15-24", '2534' = "25-34", '3544' = "35-44", '4554' = "45-54", '5564' = "55-64", '65' = "65+"))
 raw1 <- raw %>% select(country, year, sexo, edad, freq)
-raw1
+raw1$head
 ```
 
-    ## # A tibble: 2,814 x 5
-    ##    country  year sexo  edad   freq
-    ##    <chr>   <int> <chr> <chr> <int>
-    ##  1 AD       2000 m     0-14      0
-    ##  2 AD       2000 m     15-24     0
-    ##  3 AD       2000 m     25-34     1
-    ##  4 AD       2000 m     35-44     0
-    ##  5 AD       2000 m     45-54     0
-    ##  6 AD       2000 m     55-64     0
-    ##  7 AD       2000 m     65+       0
-    ##  8 AD       2000 f     0-14     NA
-    ##  9 AD       2000 f     15-24    NA
-    ## 10 AD       2000 f     25-34    NA
-    ## # ... with 2,804 more rows
+    ## Warning: Unknown or uninitialised column: 'head'.
+
+    ## NULL
 
 ``` r
 load(file = "wide_religion.rda")
