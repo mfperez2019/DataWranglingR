@@ -1,0 +1,5 @@
+"0","datos %>%  select(CLIENTE, PILOTO, CANTIDAD, UBICACION,MES) %>% "
+"0","  filter(stringr::str_detect(CLIENTE, 'EL PINCHE')) %>% "
+"0","  filter(MES==""08"") %>% "
+"0","  group_by(UBICACION) %>% "
+"0","  count(PILOTO)"

@@ -1,0 +1,5 @@
+"0","#melt de reshape2"
+"0","dfm <- melt(df, id= ""row"")"
+"0","#gather de Tidyr"
+"0","dfg <- gather(df, key=""variable"", value= ""value"", a:c)"
+"0","dfg"

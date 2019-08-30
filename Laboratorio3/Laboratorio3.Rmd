@@ -122,15 +122,16 @@ faltatotal
 faltatotal %>% select(PILOTO, CLIENTE, MES, CANTIDAD) %>% 
   count(CLIENTE) %>% 
   arrange(desc(CLIENTE))
-
-faltatotal %>% select(PILOTO, CLIENTE, MES, CANTIDAD) %>% 
+library(dplyr)
+faltatotal %>% select(PILOTO, CLIENTE, MES, UBICACION,CANTIDAD) %>% 
   filter(stringr::str_detect(CLIENTE, 'EL PINCHE')) %>%
-  group_by(MES) %>% 
+  group_by(MES, UBICACION) %>% 
   count(CLIENTE) %>% 
   arrange(desc(CLIENTE))
-datos %>%  select(CLIENTE, PILOTO, CANTIDAD, MES) %>% 
+datos %>%  select(CLIENTE, PILOTO, CANTIDAD, UBICACION,MES) %>% 
   filter(stringr::str_detect(CLIENTE, 'EL PINCHE')) %>% 
   filter(MES=="08") %>% 
+  group_by(UBICACION) %>% 
   count(PILOTO)
 #El mes en que más le robaron a el Pinche es en septiembre
 #Fernando Mariano Berrio es el que entrego en el mes de agosto más veces, tiene más probabilidad que sea el

@@ -1,4 +1,0 @@
-"0","datos %>%  select(CLIENTE, PILOTO, CANTIDAD, MES) %>% "
-"0","  filter(stringr::str_detect(CLIENTE, 'EL PINCHE')) %>% "
-"0","  filter(MES==""08"") %>% "
-"0","  count(PILOTO)"
