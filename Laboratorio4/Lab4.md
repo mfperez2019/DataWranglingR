@@ -120,12 +120,18 @@ raw$sexo <- str_sub(raw$age, start = 1, end = 1)
 raw$edad <- str_sub(raw$age, start=2)
 raw$edad <- revalue(raw$edad, c('014' = "0-14", '1524' = "15-24", '2534' = "25-34", '3544' = "35-44", '4554' = "45-54", '5564' = "55-64", '65' = "65+"))
 raw1 <- raw %>% select(country, year, sexo, edad, freq)
-raw1$head
+head(raw1)
 ```
 
-    ## Warning: Unknown or uninitialised column: 'head'.
-
-    ## NULL
+    ## # A tibble: 6 x 5
+    ##   country  year sexo  edad   freq
+    ##   <chr>   <int> <chr> <chr> <int>
+    ## 1 AD       2000 m     0-14      0
+    ## 2 AD       2000 m     15-24     0
+    ## 3 AD       2000 m     25-34     1
+    ## 4 AD       2000 m     35-44     0
+    ## 5 AD       2000 m     45-54     0
+    ## 6 AD       2000 m     55-64     0
 
 ``` r
 load(file = "wide_religion.rda")
