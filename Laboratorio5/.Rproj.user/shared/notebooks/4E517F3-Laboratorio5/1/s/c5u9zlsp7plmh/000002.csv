@@ -1,0 +1,20 @@
+"0","install.packages(""webshot"")"
+"1","Error in "
+"1","install.packages"
+"1"," : "
+"1","Updating loaded packages"
+"1","
+"
+"0","webshot::install_phantomjs()"
+"2","trying URL 'https://github.com/wch/webshot/releases/download/v0.3.1/phantomjs-2.1.1-windows.zip'
+"
+"2","Content type 'application/octet-stream'"
+"2"," length 18193653 bytes (17.4 MB)
+"
+"2","downloaded 17.4 MB
+
+"
+"1","
+Restarting R session...
+
+"

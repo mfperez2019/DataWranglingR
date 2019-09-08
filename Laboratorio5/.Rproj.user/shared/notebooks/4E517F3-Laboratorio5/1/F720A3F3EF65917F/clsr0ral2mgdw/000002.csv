@@ -1,0 +1,15 @@
+"0","datos <- read_csv(file = ""lab5/data.csv"")
+"
+"2","Parsed with column specification:
+cols(
+  `Fecha Creación` = col_character(),
+  `Hora Creación` = col_character(),
+  `Caller ID` = col_integer(),
+  Cod = col_character(),
+  Email = col_integer(),
+  SMS = col_integer(),
+  Call = col_integer(),
+  `Fecha Final` = col_character(),
+  `Hora Final` = col_character()
+)
+"

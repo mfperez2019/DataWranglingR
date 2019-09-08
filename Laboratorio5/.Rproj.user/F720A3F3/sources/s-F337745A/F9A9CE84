@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567797771924.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F9A9CE84",
+    "lastKnownWriteTime" : 1566233042,
+    "last_content_update" : 1566233042,
+    "path" : "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/Laboratorio3/Laboratorio3.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "9,91",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

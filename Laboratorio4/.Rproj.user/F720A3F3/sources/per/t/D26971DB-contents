@@ -1,0 +1,33 @@
+library(nycflights13)
+library(lubridate)
+library(dplyr)
+today()
+now()
+date_string <- "1994 October 27th"
+as.Date(date_string)
+#Función de lubridate
+ymd(date_string)
+
+date0 <- '23/11/2018'
+as.Date(date0, format = "%d/%m/%Y")
+dmy(date0)
+
+date1 <- "1994-10-27 14:00:00UTC"
+as.Date(date1, format ="%Y-%m-%d %H:%M:%S")
+ydm_hms(date1)
+class(date1)
+library(dplyr)
+flights %>% head()
+flights0 <- flights %>%  
+  select(year, month, day, hour, minute) %>%
+  mutate(departure= make_datetime(year = year, month = month, 
+                                  day = day, hour = hour, 
+                                  min = minute))
+
+flights0 %>% group_by(day(departure)) %>% count()
+library(ggplot2)
+library(lubridate)
+library(plotly)
+flights0 %>%
+  mutate(weekday = wday(departure, label = T)) %>% 
+  group_by(weekday) %>% summarise(count = n()) %>%  plot_ly(x= ~weekday, y=~count, type = 'bar')

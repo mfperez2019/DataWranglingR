@@ -1,0 +1,52 @@
+"0","#En tiempo de Norte Am√©rica, el eclipse total inici√≥ el 21 de agosto del 2017 a las 18:26:40."
+"0","#Este mismo evento, suceder√° un Saros despu√©s."
+"0","#Un Saros equivale a 223 Synodic Months"
+"0","#Un Synodic Month equivale a 29 d√≠as con 12 horas, con 44 minutos y 3 segundos."
+"0","library(lubridate)"
+"0","library(dplyr)"
+"2","package ëdplyrí was built under R version 3.5.3"
+"2","
+Attaching package: ëdplyrí
+
+"
+"2","The following objects are masked from ëpackage:lubridateí:
+
+    intersect, setdiff, union
+
+"
+"2","The following objects are masked from ëpackage:statsí:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ëpackage:baseí:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","#OlsonNames()"
+"0","inicio <- ""21/08/2017 18:26:40, tz = US/Pacific"""
+"0","inicio <- dmy_hms(inicio)"
+"0","inicio"
+"1","[1]"
+"1"," ""2017-08-21 18:26:40 UTC"""
+"1","
+"
+"0","synodic_month <- days(29) + hours(12) + minutes(44) + seconds(3)"
+"0","synodic_month"
+"1","[1]"
+"1"," ""29d 12H 44M 3S"""
+"1","
+"
+"0","saros <- synodic_month * 223"
+"0","saros"
+"1","[1]"
+"1"," ""6467d 2676H 9812M 669S"""
+"1","
+"
+"0","proximo <- inicio + saros"
+"0","proximo"
+"1","[1]"
+"1"," ""2035-09-02 02:09:49 UTC"""
+"1","
+"

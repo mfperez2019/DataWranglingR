@@ -1,0 +1,6 @@
+"0","#3.¿Qué mes es el más ocupado?"
+"0","datos %>% "
+"0","  mutate(mes = month(`Fecha Creación`, label = T)) %>% "
+"0","  group_by(mes) %>% summarise(cod = n()) %>% "
+"0","  arrange(desc(cod)) %>% "
+"0","  plot_ly(x= ~mes, y=~cod, type = 'bar')"

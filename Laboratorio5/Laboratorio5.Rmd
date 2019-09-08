@@ -1,0 +1,103 @@
+---
+title: "Lab5"
+author: "Mafer Pérez"
+date: "4 de septiembre de 2019"
+output: rmarkdown::github_document
+always_allow_html: yes
+
+---
+
+```{r, cache = TRUE}
+#install.packages("webshot")
+webshot::install_phantomjs()
+#En tiempo de Norte América, el eclipse total inició el 21 de agosto del 2017 a las 18:26:40.
+#Este mismo evento, sucederá un Saros después.
+#Un Saros equivale a 223 Synodic Months
+#Un Synodic Month equivale a 29 días con 12 horas, con 44 minutos y 3 segundos.
+library(lubridate)
+library(dplyr)
+#OlsonNames()
+inicio <- "21/08/2017 18:26:40, tz = US/Pacific"
+inicio <- dmy_hms(inicio)
+inicio
+synodic_month <- days(29) + hours(12) + minutes(44) + seconds(3)
+synodic_month
+saros <- synodic_month * 223
+saros
+proximo <- inicio + saros
+proximo
+```
+
+```{r, cache =TRUE}
+library(readr)
+library(lubridate)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+datos <- read_csv(file = "lab5/data.csv")
+datos$`Fecha Creación` <- dmy(datos$`Fecha Creación`)
+datos$`Fecha Final` <- dmy(datos$`Fecha Final`)
+#1. ¿En qué meses existe una mayor cantidad de llamadas por código?
+datos %>% filter(Call == 1) %>% 
+  mutate(mes = month(`Fecha Creación`, label = T)) %>% 
+  group_by(mes) %>% summarise(n = sum(Call)) %>% 
+  arrange(desc(n)) %>%
+  plot_ly(x= ~mes, y=~n, type = 'bar')
+#El mes de marzo es en el que más llaman con 497 llamadas
+```
+
+```{r, cache = TRUE}
+#2. ¿Qué día de la semana es el más ocupado?
+datos %>% 
+  mutate(weekday = wday(`Fecha Creación`, label = T)) %>% 
+  group_by(weekday) %>% summarise(count = n()) %>%
+  plot_ly(x= ~weekday, y=~count, type = 'bar')
+#El día más ocupado es el domingo
+```
+
+```{r, cache = TRUE}
+#3.¿Qué mes es el más ocupado?
+datos %>% 
+  mutate(mes = month(`Fecha Creación`, label = T)) %>% 
+  group_by(mes) %>% summarise(cod = n()) %>% 
+  arrange(desc(cod)) %>% 
+  plot_ly(x= ~mes, y=~cod, type = 'bar')
+#El mes más ocupado es marzo donde se registraron 22708 llamadas, emails y mensajes 
+```
+
+```{r, cache = TRUE}
+#4.¿Existe una temporalidad en la cantidad de llamadas?
+datos %>% filter(Call == 1) %>% 
+  mutate(mes = month(`Fecha Creación`, label = T)) %>% 
+  group_by(mes) %>% summarise(count = n()) %>%
+  plot_ly(x= ~mes, y=~count, type = 'bar') 
+datos %>% filter(Call == 1) %>% 
+  mutate(weekdays = wday(`Fecha Creación`, label = T)) %>% 
+  group_by(weekdays) %>% summarise(count = n()) %>%
+  plot_ly(x= ~weekdays, y=~count, type = 'bar')
+#No hay temporalidad ni por mes ni por día
+
+```
+
+```{r, cache = TRUE}
+#5. ¿Cuántos minutos dura la llamada promedio?
+datos_Call <- datos %>% filter(Call == 1)
+datos_Call$Tiempo <- difftime(datos_Call$`Hora Final`, datos_Call$`Hora Creación`, units = "mins")
+mean(datos_Call$Tiempo)
+Positivo <- datos_Call %>%  filter(datos_Call$Tiempo >= 0)
+mean(Positivo$Tiempo)
+#El promedio es de 7.76 minutos
+#Pero hay un problema cuando se llega a las 12 porque lo toma como 00 y no como 24 entonces no calcula bien la differencia
+#El promedio tomando en cuenta eso es 14.54 min
+```
+
+```{r, cache = TRUE}
+#Realice una tabla de frecuencias con el tiempo de llamada.
+frecuencia <- data.frame(datos_Call %>% 
+                           select(Tiempo) %>% filter(Tiempo >=0)%>%
+                           group_by(Tiempo) %>%
+                           summarise(cantidad = n()))
+frecuencia
+frecuencia %>% plot_ly(x= ~Tiempo, y = ~cantidad, type= "bar")
+```
+
