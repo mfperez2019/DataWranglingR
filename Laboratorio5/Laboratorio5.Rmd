@@ -4,7 +4,6 @@ author: "Mafer Pérez"
 date: "4 de septiembre de 2019"
 output: rmarkdown::github_document
 always_allow_html: yes
-
 ---
 
 ```{r, cache = TRUE}
