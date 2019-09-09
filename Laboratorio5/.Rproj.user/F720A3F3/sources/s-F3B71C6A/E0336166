@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567628018492.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E0336166",
+    "lastKnownWriteTime" : 1567627762,
+    "last_content_update" : 1567627762,
+    "path" : "C:/Users/Mafer/Desktop/Date.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "16,14",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
