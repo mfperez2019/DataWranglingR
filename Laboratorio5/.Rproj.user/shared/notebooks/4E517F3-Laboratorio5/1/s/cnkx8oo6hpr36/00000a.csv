@@ -1,5 +1,0 @@
-"0","#2. ¿Qué día de la semana es el más ocupado?"
-"0","datos %>% "
-"0","  mutate(weekday = wday(`Fecha Creación`, label = T)) %>% "
-"0","  group_by(weekday) %>% summarise(count = n()) %>%"
-"0","  plot_ly(x= ~weekday, y=~count, type = 'bar')"

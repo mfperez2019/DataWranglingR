@@ -1,0 +1,44 @@
+# 1. Placas de vehículo partícular
+library(stringr)
+str_detect(
+  string = c("P201GMF", "P345GAD", "P5652GoED", "P345GhG","P345GYH", "P35445GYH"), 
+  pattern = "^P[0-9]{3}([:upper:][^AEIOU]){3}$"
+)
+
+#2. Archivo es de tipo pdf o jpg
+str_detect(
+  string = c("mf_456.pdf", "P345GAD.jpg", "P5652GoED.PDF", "P345GhG","P345GYH", "P35445GYH"), 
+  pattern = "[[:alnum:]](.PDF|.JPG|.pdf|.jpg)"
+  )
+
+#3. Validar contraseñas de correoCaracter especial, numero y mayúscula
+str_detect(
+  string = c("Maf5gd%", "Mafer$", "Maf45t%", "mffer4"), 
+  pattern = "[[:upper:]]+\\d+[[:punct:]]+"
+)
+
+#4. Carnet de la universidad desde el 1110 hasta el 8970
+str_detect(
+  string = c("01011100", "22008970", "31001110", "30000000000", "01001110"), 
+  pattern = "^([0-2]\\d|(30))(0){2}[1-8][1-9][1-7](0)$"
+)
+
+#5. Encuentre todas las palabras de la primera linea,
+#pero ninguna de la segunda. (2)
+#a. pit, spot, spate, slap two, respite
+#b. pt,Pot,peat,part
+str_detect(
+  string = c("pit","spot", "spate", "slap two", "respite", "pt", "Pot", "peat", "part"), 
+  pattern = "^(s|slap|res)?p.t"
+)
+
+#6. Cree una expresión regular para obtener los números telefónicos de Guatemala.
+#Estos pueden contener al inicio +502 o 502, pueden estar separados por un
+##espacio en blanco o un guión o juntos. Notar que los números telefónicos
+#pueden empezar únicamente con 4,5,6 o 2. (2)
+#a. +50254821151, 4210-7640, 52018150, 2434 6854, 11234569,
+#50211234578
+str_detect(
+  string = c("+50254821151", "4210-7640", "52018150", "2434 6854", "11234569","50211234578"), 
+  pattern = "^+?(502){1}"
+)

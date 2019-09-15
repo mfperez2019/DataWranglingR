@@ -1,0 +1,1 @@
+"0","frecuencia %>% plot_ly(x= ~Tiempo, y = ~cantidad, type= ""bar"")"

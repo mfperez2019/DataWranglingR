@@ -2,13 +2,10 @@
 title: "Lab5"
 author: "Mafer Pérez"
 date: "4 de septiembre de 2019"
-output: html_document
-always_allow_html: yes
+output: rmarkdown::github_document
 ---
 
 ```{r, cache = TRUE}
-#install.packages("webshot")
-webshot::install_phantomjs()
 #En tiempo de Norte América, el eclipse total inició el 21 de agosto del 2017 a las 18:26:40.
 #Este mismo evento, sucederá un Saros después.
 #Un Saros equivale a 223 Synodic Months

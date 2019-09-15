@@ -1,5 +1,0 @@
-"0","frecuencia %>% plot_ly(x= ~Tiempo, y = ~cantidad, type= ""bar"")
-"
-"2","Error in frecuencia %>% plot_ly(x = ~Tiempo, y = ~cantidad, type = ""bar"") : 
-  could not find function ""%>%""
-"

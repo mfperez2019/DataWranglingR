@@ -1,1 +1,0 @@
-{"frames":[],"message":"Error in frecuencia %>% plot_ly(x = ~Tiempo, y = ~cantidad, type = \"bar\") : \n  could not find function \"%>%\"\n"}

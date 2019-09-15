@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1568578733368.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F52A6A5D",
+    "lastKnownWriteTime" : 1568578628,
+    "last_content_update" : 1568578628,
+    "path" : "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/Laboratorio5/Lab6.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "27,1",
+        "scrollLine" : "8"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

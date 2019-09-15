@@ -1,0 +1,6 @@
+"0","#Realice una tabla de frecuencias con el tiempo de llamada."
+"0","frecuencia <- data.frame(datos_Call %>% "
+"0","                           select(Tiempo) %>% filter(Tiempo >=0)%>%"
+"0","                           group_by(Tiempo) %>%"
+"0","                           summarise(cantidad = n()))"
+"0","frecuencia"
