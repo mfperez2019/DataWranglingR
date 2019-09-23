@@ -201,8 +201,12 @@ clientes_40
 #Gráfica del 40% de los clientes
 clientes_60 <- 74239-29695
 clientes_60
-
-
+clientesgrafica <- c(29695, clientes_60)
+clientesgrafica
+porcentajegrafica <- c(0.4, 0.6)
+graf <- data.frame(clientes = clientesgrafica, porcentaje = porcentajegrafica)
+ggplot(data = graf, aes(x = clientes,  y = porcentaje, fill = clientes))+
+  geom_bar(stat = 'identity')
 ```
 
 ```{r}
