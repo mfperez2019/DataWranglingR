@@ -1,0 +1,3 @@
+"0","perdidas <- datos %>% filter(ingresos <= 0)"
+"0","#El mínimo ingreso se tiene cuando es tardado, se hace una revisión, verficación medirdores, o cambio correctivo. y los costos directos son altos, se va en pickup"
+"0","#Se tienen mayores ganancias cuando es un cambio de fusible, se va en moto y los costos son bajos"

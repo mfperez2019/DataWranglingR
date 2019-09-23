@@ -1,0 +1,58 @@
+---
+title: "Laboratorio"
+author: "Mafer Pérez"
+date: "31 de julio de 2019"
+output: rmarkdown::github_document
+---
+
+```{r, cache = TRUE, echo= TRUE}
+
+files <- list.files(path="lab", full.names = T)
+list(files)
+```
+
+```{r, cache = TRUE, echo = TRUE}
+library(openxlsx)
+lab1 <- lapply(files, function(filename){
+  print(paste("Merging",sep =" "))
+  df <- readWorkbook(filename)
+  df$mes <- substr(filename,5,6)
+  df$anio <- 2018
+  return(df[c('COD_VIAJE','CLIENTE','UBICACION','CANTIDAD','PILOTO','Q', 'CREDITO','UNIDAD', 'mes', 'anio')])
+})
+lab1
+
+```
+
+
+```{r, cache = TRUE, echo = TRUE}
+library(dplyr)
+df1 <- bind_rows(lab1)
+df1
+```
+
+```{r, cache = TRUE, echo = TRUE}
+write.csv(df1, file = 'datosembotelladora.csv')
+
+```
+
+```{r, cache = TRUE, echo = TRUE}
+a <- c(1,2,2,3,3,3,4,4,5,5)
+b <- c(2,2,2,2,3,3,3,3,4)
+c <- c(3,3,3,3,3,4,4,4,4)
+lista_vectores <- list(a,b,c)
+moda <- lapply(lista_vectores,function(i){
+  ux <- unique(i)
+  ux[which.max(tabulate(match(i, ux)))]
+})
+moda
+```
+
+```{r, cache = TRUE, echo = TRUE}
+#file <- "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/Laboratorio 1/INE_PARQUE_VEHICULAR_080219.txt"
+#file
+#library(readr)
+#parque_vehicular <- read.delim(file, header = TRUE, sep = "|", quote = "", dec = ".")
+#parque_vehicular
+```
+

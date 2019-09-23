@@ -1,0 +1,5 @@
+"0","data <- merge(datos1, datos2, datos3, by= ""ID"")
+"
+"2","Error in fix.by(by.x, x) : 
+  'by' must specify one or more columns as numbers, names or logical
+"

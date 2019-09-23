@@ -1,0 +1,4 @@
+"0","#Debo abrir más centros de distribución?"
+"0","datos$origen <- as.character(datos$origen)"
+"0","tiempototal <- datos %>% group_by(origen, tiempo) %>% summarise(count = n()) %>% ungroup()"
+"0","tiempototal"

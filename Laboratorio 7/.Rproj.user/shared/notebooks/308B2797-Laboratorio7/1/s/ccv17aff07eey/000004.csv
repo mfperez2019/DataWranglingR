@@ -1,0 +1,2 @@
+"0","tarifas$Cod <- as.character(tarifas$Cod)"
+"0","ggplot(data = tarifas, aes(x = height, y = mean, fill = Cod))+geom_bar(stat='identity', position = 'dodge')"

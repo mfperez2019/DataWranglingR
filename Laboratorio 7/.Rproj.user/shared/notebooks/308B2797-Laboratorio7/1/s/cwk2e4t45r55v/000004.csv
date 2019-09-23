@@ -1,0 +1,6 @@
+"0","plot_ly("
+"0","  x = tiempototal$origen,"
+"0","  y = tiempototal$count,"
+"0","  color = tiempototal$tiempo,"
+"0","  type = ""bar"""
+"0",")"

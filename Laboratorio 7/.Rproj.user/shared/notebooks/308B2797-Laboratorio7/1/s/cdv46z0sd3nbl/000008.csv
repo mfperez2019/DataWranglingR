@@ -1,0 +1,3 @@
+"0","masganancias <- datos %>% filter(ingresos == 100) %>% group_by(Cod) %>% summarise(count = n())"
+"0","ggplot(data = masganancias, aes(x ="""", y = count, fill = Cod)) +"
+"0","  geom_bar(position = 'dodge', stat = 'identity')"

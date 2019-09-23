@@ -1,0 +1,3 @@
+"0","posibleperdida <- datos %>% filter(ingresos == 5) %>% group_by(Cod) %>% summarise(count = n())"
+"0","ggplot(data = posibleperdida, aes(x ="""", y = count, fill = Cod)) +"
+"0","  geom_bar(position = 'dodge', stat = 'identity')"

@@ -1,0 +1,256 @@
+---
+title: "Laboratorio3"
+author: "Mafer Pérez"
+date: "14 de agosto de 2019"
+output: rmarkdown::github_document
+---
+
+```{r, cache=TRUE}
+library(readr)
+datos <- read_csv(file = "lab3/tabla_completa.csv",col_names = TRUE, locale = locale(encoding = "latin1"))
+datos$X1 <- NULL
+datos
+```
+
+```{r,cache= TRUE}
+summary(datos)
+colSums(is.na(datos))
+dplyr::glimpse(datos)
+```
+
+```{r, cache = TRUE}
+library(dplyr)
+#Primero hay que saber cuantos pilotos hay
+datos %>% select(PILOTO) %>% distinct()
+#PILOTOS Angel, Felipe, #Fernando, Hector Aragones, Hector Giron, #Ismael,Juan, Luis, #Pedro
+
+#Con esto quiero saber cuántos viajes hace cada piloto en un mes
+empleados <- datos %>% 
+  select(PILOTO, CLIENTE,Q, CANTIDAD, MES, UBICACION, UNIDAD) %>% 
+  filter(MES== "01")%>% 
+  group_by(PILOTO) %>% 
+  count(PILOTO) 
+
+empleados
+#En Enero se hicieron 192 viajes
+#En promedio se hacen 21 viajes por persona
+#Hay dos que hacen 25 y 26 y otros que solo hacen 18, 19
+
+#Lo siguiente es para saber el promedio de cantidad y  dinero que recibe casa piloto en un mes
+datos %>% select(PILOTO, Q, CANTIDAD, MES) %>% 
+  filter(MES =="01")%>% 
+  group_by(PILOTO) %>% 
+  summarise(Qmedia = mean(Q),Cantmedia = mean(CANTIDAD)) %>%
+  arrange(desc(Qmedia))
+#Para saber si hay que contratar a más personal viendo el numero de viajes que hacen por mes y el dinero que hace en promedio cada uno es muy parecido. Así que yo pensaría que no hay que contratar a nadie más  
+```
+
+```{r, cache= TRUE}
+#Para saber cuanto clientes son
+datos %>% select(CLIENTE) %>% group_by(CLIENTE) %>% count(CLIENTE)
+#Son 13 clientes
+datos %>% select(CLIENTE, Q, CANTIDAD,UNIDAD, MES) %>%
+  group_by(UNIDAD) %>% 
+  summarise(TOTALUNIDAD = sum(CANTIDAD)) %>%
+  arrange(desc(TOTALUNIDAD))
+#La cantidad mayor es para camiones grandes
+
+#Cantidad de viajes por tipo camion
+datos %>% select(CLIENTE, Q, CANTIDAD,UNIDAD, MES) %>%
+  count(UNIDAD) 
+#Los viajes: 1211 grandes, 605 pequeños, 364 panel
+
+#Cual cantidad de pedidos está aumentando si la de 
+datos %>%  select(UNIDAD, Q, CANTIDAD, MES) %>% 
+  filter(UNIDAD== "Camion Grande") %>% 
+  group_by(MES) %>% 
+  summarise(PCANTIDAD=mean(CANTIDAD), TCANTIDAD= sum(CANTIDAD) )
+datos %>%  select(UNIDAD, Q, CANTIDAD, MES) %>% 
+  filter(UNIDAD== "Camion Pequeño") %>% 
+  group_by(MES) %>% 
+  summarise(PCANTIDAD=mean(CANTIDAD), TCANTIDAD= sum(CANTIDAD))
+datos %>%  select(UNIDAD, Q, CANTIDAD, MES) %>% 
+  filter(UNIDAD== "Panel") %>% 
+  group_by(MES) %>% 
+  summarise(PCANTIDAD=sum(CANTIDAD), TCANTIDAD= sum(CANTIDAD))
+
+datos %>% select(UNIDAD, MES, UBICACION, COD_VIAJE) %>% group_by(UNIDAD, MES) %>% count(UNIDAD) %>% distinct()
+
+datos %>% select(UNIDAD, UBICACION,COD_VIAJE) %>% group_by(UBICACION) %>% summarise(numeroubicacion = n_distinct(COD_VIAJE)) %>% distinct()
+
+datos %>% select(UNIDAD, UBICACION,COD_VIAJE) %>% group_by(UBICACION, UNIDAD) %>% summarise(numeroubicacion = n_distinct(COD_VIAJE)) %>% distinct()
+#La mayoría de viajes son en camiones grandes y si se ve la cantidad por mes va aumentando para los camiones grandes. Mientras que para lo pequeños y paneles no, solamente fluctúan.
+  
+```
+
+```{r, cache= TRUE}
+datos %>% 
+  select(CLIENTE,Q, CANTIDAD, MES, UBICACION, UNIDAD) %>% 
+  filter(MES== "01")%>%
+  group_by(CLIENTE) %>% 
+  count(CLIENTE)
+```
+
+```{r, cache= TRUE}
+#Para ver si las tarifas actuales son aceptadas por el cliente
+datos %>% select(CLIENTE,MES) %>% group_by(MES) %>% 
+  count(CLIENTE) %>% distinct() %>% 
+  arrange(CLIENTE)
+#Los viajes que se hacen para cada cliente no están disminuyendo solo fluctúan
+#La tarifa actual es de Q4 por cada cosa
+datos %>% select(CLIENTE,MES,CANTIDAD) %>% group_by(CLIENTE, MES) %>% 
+  summarise(TotalCantidad= sum(CANTIDAD))
+Devol = data.frame(datos[grep("DEVOLUCION", datos$CLIENTE),])
+Devol
+Devol %>% select(CLIENTE) %>% count(CLIENTE)
+#La cantidad que pide cada cliente por mes no está dismuyendo, el de algunos ha aumentado y el de otros solamente fluctúan
+```
+
+```{r, cache= TRUE}
+#¿Nos están robando los pilotos?
+datos %>% 
+  select(CLIENTE,Q, CANTIDAD, MES, UBICACION, UNIDAD) %>% 
+  group_by(CLIENTE) %>% 
+  count(CLIENTE)
+falta = data.frame(datos[grep("Faltante",datos$CLIENTE),])
+falta
+falta2 = data.frame(datos[grep("FALTANTE",datos$CLIENTE),])
+falta2
+faltatotal = rbind(falta,falta2)
+faltatotal
+
+faltatotal %>% select(PILOTO, CLIENTE, MES, CANTIDAD) %>% 
+  count(CLIENTE) %>% 
+  arrange(desc(CLIENTE))
+library(dplyr)
+faltatotal %>% select(PILOTO, CLIENTE, MES, UBICACION,CANTIDAD) %>% 
+  filter(stringr::str_detect(CLIENTE, 'EL PINCHE')) %>%
+  group_by(MES, UBICACION) %>% 
+  count(CLIENTE) %>% 
+  arrange(desc(CLIENTE))
+datos %>%  select(CLIENTE, PILOTO, CANTIDAD, UBICACION,MES) %>% 
+  filter(stringr::str_detect(CLIENTE, 'EL PINCHE')) %>% 
+  filter(MES=="08") %>% 
+  group_by(UBICACION) %>% 
+  count(PILOTO)
+#El mes en que más le robaron a el Pinche es en septiembre
+#Fernando Mariano Berrio es el que entrego en el mes de agosto más veces, tiene más probabilidad que sea el
+#Para saber si nos están robando primero vi la empresa que más faltantes se le entregaban y en que mes
+  
+```
+
+```{r, cache= TRUE}
+#La estrategia que se debería tomar es tener más control del producto que sale y quién se lo lleva para poder saber quién es el responsable del faltante. Se debe tratar de aumentar la cantidad que actualmente están pidiendo los clientes para obtener más ganancias.
+```
+
+```{r, cache = TRUE}
+library(stringr)
+datos$CLIENTE <- gsub("|||", "", datos$CLIENTE, fixed=TRUE)
+datos$CLIENTE <- gsub("/", "", datos$CLIENTE, fixed=TRUE)
+datos$CLIENTE <- gsub("\\s+", " ", str_trim(datos$CLIENTE))
+datos$CLIENTE <- gsub("Faltante", "", datos$CLIENTE, fixed=TRUE)
+datos$CLIENTE <- gsub("FALTANTE", "", datos$CLIENTE, fixed=TRUE)
+datos$CLIENTE <- gsub("DEVOLUCION", "", datos$CLIENTE,fixed=TRUE)
+datos$CLIENTE <- gsub("Despacho a cliente", "", datos$CLIENTE,fixed=TRUE)
+datos %>% select(CLIENTE) %>% group_by(CLIENTE) %>% count(CLIENTE)
+```
+
+```{r, cache= TRUE}
+clientes <- datos %>% select(CLIENTE, Q, COD_VIAJE) %>% group_by(CLIENTE) %>% summarise(Q = sum(Q), cantidadviajes = n()) %>% arrange(desc(Q)) %>% ungroup()
+clientes
+clientes1 <- datos %>% 
+  select(CLIENTE) %>% 
+  distinct() %>% 
+  count()
+clientes2 <- clientes1*0.2
+clientes2
+#2.6 son los clientes que representan el 20% del total
+
+ventas <- datos %>% 
+  select(Q) %>% 
+  sum()
+ventas 
+ventas1 <- ventas*.8
+ventas1
+#80% de ingresos vs 20% de clientes
+#El total de ingresos de los clientes
+clientestotal <- datos %>% 
+  select(CLIENTE,Q) %>% 
+  group_by(CLIENTE) %>% 
+  summarise(TotalQ = sum(Q)) %>% 
+  arrange(desc(TotalQ))
+#Los que representan el 20% de todo
+clientes_20 <- head(clientestotal,3)
+clientes_20
+
+#Luego cuanto es el 80% de los ingresos
+ventas_80 <- clientes_20 %>% 
+  summarise(ventas= sum(TotalQ))
+ventas_80
+
+#Para ver el porcentaje que representa los tres negocios de los ingresos
+porcentaje <- ventas_80/ventas*100
+
+porcentaje
+resultado <- data.frame(ventas_80,porcentaje)
+resultado
+#Los tres clientes principales representan solo el 35% de los ingresos totales. El pinche, el gallo negro y pollopinulito
+
+```
+
+```{r}
+
+```
+
+```{r, cache = TRUE}
+#Mejores Pilotos y más eficientes
+library(ggplot2)
+ingreso_unidad <- datos %>% 
+  select(UNIDAD,Q) %>% 
+  group_by(UNIDAD) %>% 
+  summarise(TotalQ = sum(Q)) %>% 
+  arrange(desc(TotalQ)) 
+ingreso_unidad
+numero_viajes <- datos %>% 
+  select(UNIDAD,COD_VIAJE) %>% 
+  group_by(UNIDAD) %>% 
+  summarise(viajes = n()) %>%
+  arrange(desc(viajes)) 
+numero_viajes
+
+ingreso_viaje <- datos %>% 
+  select(UNIDAD,Q, COD_VIAJE) %>% 
+  group_by(UNIDAD) %>% 
+  summarise(TotalQ = sum(Q)/n()) %>% 
+  arrange((TotalQ))
+ingreso_viaje
+ggplot(ingreso_viaje, aes(fill=UNIDAD, y=TotalQ, x=UNIDAD)) + 
+    geom_bar(position="dodge", stat="identity")
+
+#Eficiencia de los pilotos en base a los viajes
+viajes_piloto <- datos %>% 
+  select(PILOTO,COD_VIAJE) %>%
+  group_by(PILOTO) %>% 
+  summarise(viajes = n()/2180) %>%
+  arrange(desc(viajes)) 
+viajes_piloto
+ggplot(viajes_piloto, aes(fill=PILOTO, y=viajes, x=PILOTO)) + 
+    geom_bar(position="dodge", stat="identity")
+
+```
+
+```{r, cache= TRUE}
+library(ggplot2)
+datos = data.frame(datos %>% select(CLIENTE, Q) %>% group_by(CLIENTE) %>% summarise(Total = sum(Q)) %>% arrange(desc(Total)))
+datos <- datos[order(datos$Total, decreasing=TRUE), ]
+datos$cumulative <- cumsum(datos$Total)
+datos$CLIENTE <- factor(datos$CLIENTE, levels=datos$CLIENTE)
+library(ggplot2)
+ggplot(datos, aes(x=datos$CLIENTE)) +
+geom_bar(aes(y=datos$Total), fill='blue', stat="identity", size=1) +
+geom_point(aes(y=datos$cumulative), color = rgb(0, 1, 0), pch=16, size=1) +
+geom_path(aes(y=datos$cumulative, group=1), colour="slateblue1", lty=6, size=0.6) +
+theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+labs(title = "Pareto Plot", subtitle = "80-20%", x = 'CLIENTES', y = 'FREQ')
+```
+
