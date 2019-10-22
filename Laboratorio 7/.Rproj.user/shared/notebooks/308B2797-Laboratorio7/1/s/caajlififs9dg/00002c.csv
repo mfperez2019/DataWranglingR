@@ -1,0 +1,6 @@
+"0","ingreso_Moto <- datos %>% filter(tipo ==""Moto"") %>% summarise (ingreso = sum(factura))"
+"0","costo_Moto <- datos %>% filter(tipo ==""Moto"") %>% summarise (ingreso = sum(costo))"
+"0","directo_Moto <- datos %>% filter(tipo ==""Moto"") %>% summarise (ingreso = sum(costodirecto))"
+"0","fijo_Moto <- datos %>% filter(tipo ==""Moto"") %>% summarise (ingreso = sum(costofijo))"
+"0","TotalMoto <- data.frame(ingreso_Moto, porcentaje_ingresos = ingreso_Moto/sum(datos$factura), costo_Moto , directo_Moto, fijo_Moto)"
+"0","TotalMoto "

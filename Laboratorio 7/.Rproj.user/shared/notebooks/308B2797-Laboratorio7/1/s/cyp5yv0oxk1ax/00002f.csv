@@ -1,0 +1,4 @@
+"0","clientes_30 <- head(clientestotal,22271)"
+"0","ventas_30 <- clientes_30 %>% "
+"0","  summarise(totalventas= sum(totalfactura))"
+"0","ventas_30"

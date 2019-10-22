@@ -1,0 +1,26 @@
+"0","library(ggplot2)"
+"0","library(plotly)"
+"2","package ‘plotly’ was built under R version 3.5.3"
+"2","
+Attaching package: ‘plotly’
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    filter
+
+"
+"2","The following object is masked from ‘package:graphics’:
+
+    layout
+
+"
+"0","tarifas<- datos %>% select(Fecha, factura, Cod, height) %>% filter(year(Fecha)==2017) %>% group_by(Cod, height) %>% summarise(mean = mean(factura), min = min(factura), max = max(factura))"
+"0","tarifas %>% View()"
+"0","tarifas$Cod <- as.character(tarifas$Cod)"
+"0","ggplot(data = tarifas, aes(x = height, y = mean, fill = Cod))+geom_bar(stat='identity', position = 'dodge')"

@@ -1,0 +1,8 @@
+"0","str_detect(
+  string = titanic$Name, 
+  pattern = ""(Miss)|(Mrs)""
+) %>% filter(TRUE)
+"
+"2","Error in UseMethod(""filter_"") : 
+  no applicable method for 'filter_' applied to an object of class ""logical""
+"

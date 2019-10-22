@@ -1,0 +1,6 @@
+"0","plot_ly("
+"0","  x = PorTipo$tipo,"
+"0","  y = PorTipo$promedio,"
+"0","  color = PorTipo$tipo,"
+"0","  type = ""bar"""
+"0",")"

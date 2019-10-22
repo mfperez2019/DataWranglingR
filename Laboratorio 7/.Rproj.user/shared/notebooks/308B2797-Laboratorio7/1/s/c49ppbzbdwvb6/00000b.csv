@@ -1,0 +1,2 @@
+"0","ggplot(data = PorCod, aes(x = Cod,  y = promedio, fill = Cod))+"
+"0","  geom_bar(stat = 'identity')"

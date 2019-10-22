@@ -1,4 +1,0 @@
-"0","#Son aceptadas por el cliente? Tenemos pérdidas?"
-"0","library(lubridate)"
-"0","datos <- datos %>% mutate(ingresos = factura - costo)"
-"0","datos %>% group_by(month(Fecha)) %>% summarise(Totalingresos =sum(ingresos)) "

@@ -1,5 +1,0 @@
-"0","costo_camion <- datos %>% filter(tipo ==""Camion"") %>% summarise (ingreso = sum(costo))"
-"0","directo_camion <- datos %>% filter(tipo ==""Camion"") %>% summarise (ingreso = sum(costodirecto))"
-"0","fijo_camion <- datos %>% filter(tipo ==""Camion"") %>% summarise (ingreso = sum(costofijo))"
-"0","TotalCamion <- data.frame(ingreso_camion, porcentaje_ingresos = ingreso_camion/sum(datos$factura), costo_camion , directo_camion, fijo_camion)"
-"0","TotalCamion"

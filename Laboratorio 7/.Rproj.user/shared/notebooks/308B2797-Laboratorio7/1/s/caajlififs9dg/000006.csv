@@ -1,6 +1,0 @@
-"0","ingreso_pickup <- datos %>% filter(tipo ==""Pickup"") %>% summarise (ingreso = sum(factura))"
-"0","costo_pickup <- datos %>% filter(tipo ==""Pickup"") %>% summarise (ingreso = sum(costo))"
-"0","directo_pickup <- datos %>% filter(tipo ==""Pickup"") %>% summarise (ingreso = sum(costodirecto))"
-"0","fijo_pickup <- datos %>% filter(tipo ==""Pickup"") %>% summarise (ingreso = sum(costofijo))"
-"0","TotalPickup <- data.frame(ingreso_pickup, porcentaje_ingresos = ingreso_pickup/sum(datos$factura), costo_pickup , directo_pickup, fijo_pickup)"
-"0","TotalPickup"

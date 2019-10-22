@@ -1,0 +1,2 @@
+"0","ingresosporcod <- datos %>% group_by(Cod) %>% summarise (ingreso = sum(factura)) %>% mutate(porcentaje = ingreso/sum(datos$factura))"
+"0","ingresosporcod %>% View()"

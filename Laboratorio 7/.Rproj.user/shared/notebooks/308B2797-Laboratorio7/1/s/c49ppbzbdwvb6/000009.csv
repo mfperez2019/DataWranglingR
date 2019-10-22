@@ -1,0 +1,6 @@
+"0","#Recorridos más efectivos"
+"0","datos$Cod<-as.character(datos$Cod)"
+"0","PorTipo <- datos%>% group_by(tipo) %>% summarise(count = n(), total = sum(ingresos)) %>% mutate(promedio = total/count) %>%  arrange(desc(promedio))"
+"0","PorCod <- datos%>% group_by(Cod) %>% summarise(count = n(), total = sum(ingresos)) %>% mutate(promedio = total/count) %>%  arrange(desc(promedio))"
+"0","ggplot(data = PorTipo, aes(x = tipo, y = promedio, fill = tipo))+"
+"0","  geom_bar(stat = 'identity')"

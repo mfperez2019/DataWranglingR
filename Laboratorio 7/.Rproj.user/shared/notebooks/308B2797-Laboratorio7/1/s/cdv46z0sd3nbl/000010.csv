@@ -1,0 +1,23 @@
+"0","#Son aceptadas por el cliente? Tenemos pérdidas?"
+"0","library(lubridate)"
+"0","datos <- datos %>% mutate(ingresos = factura - costo)"
+"0","aceptacion <- datos %>% group_by(month =month(Fecha)) %>% summarise(Totalingresos =sum(ingresos))"
+"0","aceptacion$month <- as.character(aceptacion$month)"
+"0","plot_ly("
+"0","  x = aceptacion$month,"
+"0","  y = aceptacion$Totalingresos,"
+"0","  color = aceptacion$month,"
+"0","  type = ""bar"""
+"0",")"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"

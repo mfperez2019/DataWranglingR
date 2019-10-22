@@ -1,0 +1,5 @@
+"0","tarifas1<- datos %>% select(Fecha, factura, Cod, height) %>% filter(year(Fecha)==2017) %>% group_by(Cod) %>% summarise(mean = mean(factura), min = min(factura), max = max(factura)) %>% order_by(desc(mean))
+"
+"2","Error: Must use a vector in `[`, not an object of class matrix.
+[90mCall `rlang::last_error()` to see a backtrace[39m
+"

@@ -73,7 +73,9 @@ library(reshape2)
 estado_de_resultados <- data.frame(ventas = sum(datos$factura), costo_de_ventas = sum(datos$costo), costo_directo= sum(datos$costodirecto), costo_fijo = sum(datos$costofijo), ganancias = sum(datos$factura) - sum(datos$costo))
 estado_de_resultados <- t(estado_de_resultados)
 colnames(estado_de_resultados) <- c('Ingreso/Costo')
-estado_de_resultados
+
+estado_de_resultados %>% View()
+
 
 #Desglosado
 ingreso_camion <- datos  %>% filter(tipo =="Camion") %>% summarise (ingreso = sum(factura))
@@ -82,30 +84,40 @@ costo_camion <- datos %>% filter(tipo =="Camion") %>% summarise (ingreso = sum(c
 directo_camion <- datos %>% filter(tipo =="Camion") %>% summarise (ingreso = sum(costodirecto))
 fijo_camion <- datos %>% filter(tipo =="Camion") %>% summarise (ingreso = sum(costofijo))
 TotalCamion <- data.frame(ingreso_camion, porcentaje_ingresos = ingreso_camion/sum(datos$factura), costo_camion , directo_camion, fijo_camion)
-TotalCamion
+TotalCamion 
 
 ingreso_pickup <- datos %>% filter(tipo =="Pickup") %>% summarise (ingreso = sum(factura))
 costo_pickup <- datos %>% filter(tipo =="Pickup") %>% summarise (ingreso = sum(costo))
 directo_pickup <- datos %>% filter(tipo =="Pickup") %>% summarise (ingreso = sum(costodirecto))
 fijo_pickup <- datos %>% filter(tipo =="Pickup") %>% summarise (ingreso = sum(costofijo))
 TotalPickup <- data.frame(ingreso_pickup, porcentaje_ingresos = ingreso_pickup/sum(datos$factura), costo_pickup , directo_pickup, fijo_pickup)
-TotalPickup
+TotalPickup 
 
 ingreso_Moto <- datos %>% filter(tipo =="Moto") %>% summarise (ingreso = sum(factura))
 costo_Moto <- datos %>% filter(tipo =="Moto") %>% summarise (ingreso = sum(costo))
 directo_Moto <- datos %>% filter(tipo =="Moto") %>% summarise (ingreso = sum(costodirecto))
 fijo_Moto <- datos %>% filter(tipo =="Moto") %>% summarise (ingreso = sum(costofijo))
 TotalMoto <- data.frame(ingreso_Moto, porcentaje_ingresos = ingreso_Moto/sum(datos$factura), costo_Moto , directo_Moto, fijo_Moto)
-TotalMoto
+TotalMoto 
+ingresosporcod <- datos %>% group_by(Cod) %>% summarise (ingreso = sum(factura)) %>% mutate(porcentaje = ingreso/sum(datos$factura))
+ingresosporcod %>% View()
 ```
 
 ```{r}
 library(ggplot2)
 library(plotly)
-tarifas<- datos %>% select(factura, Cod, height) %>% group_by(Cod, height) %>% summarise(mean = mean(factura), min = min(factura), max = max(factura))
-tarifas
-tarifas$Cod <- as.character(tarifas$Cod)
+
+tarifas<- datos %>% select(Fecha, factura, Cod, height) %>% filter(year(Fecha)==2017) %>% group_by(Cod, height) %>% summarise(mean = mean(factura), min = min(factura), max = max(factura)) 
+tarifas1<- datos %>% select(Fecha, factura, Cod, height) %>% filter(year(Fecha)==2017) %>% group_by(Cod) %>% summarise(mean = mean(factura), min = min(factura), max = max(factura))
+tarifas1 %>% View()
+tarifas1$Cod <- as.character(tarifas1$Cod)
 ggplot(data = tarifas, aes(x = height, y = mean, fill = Cod))+geom_bar(stat='identity', position = 'dodge')
+plot_ly(
+  x = tarifas1$Cod,
+  y = tarifas1$mean,
+  color = tarifas1$Cod,
+  type = "bar"
+)
 
 ```
 
@@ -113,10 +125,24 @@ ggplot(data = tarifas, aes(x = height, y = mean, fill = Cod))+geom_bar(stat='ide
 #Son aceptadas por el cliente? Tenemos pérdidas?
 library(lubridate)
 datos <- datos %>% mutate(ingresos = factura - costo)
-datos %>% group_by(month(Fecha)) %>% summarise(Totalingresos =sum(ingresos)) 
+aceptacion <- datos %>% group_by(month =month(Fecha)) %>% summarise(Totalingresos =sum(ingresos))
+
+aceptacion$month <- as.character(aceptacion$month)
+plot_ly(
+  x = aceptacion$month,
+  y = aceptacion$Totalingresos,
+  color = aceptacion$month,
+  type = "bar"
+)
 posibleperdida <- datos %>% filter(ingresos == 5) %>% group_by(Cod) %>% summarise(count = n())
 ggplot(data = posibleperdida, aes(x ="", y = count, fill = Cod)) +
   geom_bar(position = 'dodge', stat = 'identity')
+plot_ly(
+  x = posibleperdida$Cod,
+  y = posibleperdida$count,
+  color = posibleperdida$Cod,
+  type = "bar"
+)
 masganancias <- datos %>% filter(ingresos == 100) %>% group_by(Cod) %>% summarise(count = n())
 ggplot(data = masganancias, aes(x ="", y = count, fill = Cod)) +
   geom_bar(position = 'dodge', stat = 'identity')
@@ -191,6 +217,7 @@ ventas_40 <- clientes_40 %>%
 ventas_40
 Porcentaje40 <- ventas_40/ventas
 Porcentaje40
+clientes_40
 
 #El 40% representa el 75% de las ventas
 
@@ -201,8 +228,13 @@ clientes_40
 #Gráfica del 40% de los clientes
 clientes_60 <- 74239-29695
 clientes_60
-
-
+clientesgrafica <- c(29695, clientes_60)
+clientesgrafica
+porcentajegrafica <- c(0.75, 0.25)
+graf <- data.frame(clientes = clientesgrafica, porcentaje = porcentajegrafica)
+graf$clientes <- as.character(graf$cliente)
+ggplot(data = graf, aes(x = clientes,  y = porcentaje, fill = clientes))+
+  geom_bar(stat = 'identity')
 ```
 
 ```{r}
@@ -210,10 +242,29 @@ clientes_60
 datos$Cod<-as.character(datos$Cod)
 PorTipo <- datos%>% group_by(tipo) %>% summarise(count = n(), total = sum(ingresos)) %>% mutate(promedio = total/count) %>%  arrange(desc(promedio))
 PorCod <- datos%>% group_by(Cod) %>% summarise(count = n(), total = sum(ingresos)) %>% mutate(promedio = total/count) %>%  arrange(desc(promedio))
+PorTiempo <- datos%>% group_by(tiempo) %>% summarise(count = n(), total = sum(ingresos)) %>% mutate(promedio = total/count) %>%  arrange(desc(promedio))
 ggplot(data = PorTipo, aes(x = tipo, y = promedio, fill = tipo))+
   geom_bar(stat = 'identity')
 ggplot(data = PorCod, aes(x = Cod,  y = promedio, fill = Cod))+
   geom_bar(stat = 'identity')
+plot_ly(
+  x = PorTipo$tipo,
+  y = PorTipo$promedio,
+  color = PorTipo$tipo,
+  type = "bar"
+)
+plot_ly(
+  x = PorCod$Cod,
+  y = PorCod$promedio,
+  color = PorCod$Cod,
+  type = "bar"
+)
+plot_ly(
+  x = PorTiempo$tiempo,
+  y = PorTiempo$promedio,
+  color = PorTiempo$tiempo,
+  type = "bar"
+)
 
 ```
 

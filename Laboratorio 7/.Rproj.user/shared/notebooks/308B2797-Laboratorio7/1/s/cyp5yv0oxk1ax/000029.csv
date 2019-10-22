@@ -1,0 +1,3 @@
+"0","ventas_80 <- clientes_20 %>% "
+"0","  summarise(totalventas= sum(totalfactura))"
+"0","ventas_80"
