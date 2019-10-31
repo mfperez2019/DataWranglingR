@@ -1,0 +1,5 @@
+#Rmarkdown
+Aquí se sacaron los tweets y se hizo la parte de regex
+
+#Python
+Se hizo todo lo demás
