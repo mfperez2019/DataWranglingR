@@ -1,0 +1,33 @@
+"0","library(twitteR)"
+"0","library(dplyr)"
+"2","package ‘dplyr’ was built under R version 3.5.3"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:twitteR’:
+
+    id, location
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(readr)"
+"0","consumer_key <- ""bSGZvIzT3ZsCBvINlUYA9inD6"""
+"0","consumer_secret <- ""BAVehNrJkmTGI0D05NyrlJRjTnzfvgvOXoLT6xE31FY2ZFrTiD"""
+"0","access_token <- ""828401502859456513-6RwSzpaposg3vZyJsRZY96aaD9Moo9D"""
+"0","access_secret <- ""gQ6FMYEL3dRw3q3lmDCWsCAw8TjFRjwcNU7riT2c6AIBT"""
+"0","setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)"
+"1","[1]"
+"1"," ""Using direct authentication"""
+"1","
+"
+"0","tw <- twitteR::searchTwitter('#EstoNoHaTerminado', n = 1000, since = '2019-10-23', retryOnRateLimit = 1e3, lang=""en"")"

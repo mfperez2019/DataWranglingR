@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1572474599537.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "4152373146",
+    "id" : "5CC5D713",
+    "lastKnownWriteTime" : 1568060357,
+    "last_content_update" : 1568060357,
+    "path" : "C:/Users/Mafer/Desktop/DataW/Stringr.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "40,41",
+        "scrollLine" : "26"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

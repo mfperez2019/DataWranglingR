@@ -1,0 +1,56 @@
+#Punto g.t toms dolo uns csracter sin incluir el salto de línea
+
+#Barra inversa \d digito del 0 al 9, por ejemplo
+
+#Corchetes [] represenran clases de caracteres
+#Se puede combinar con - para especificar rangos
+
+#Los paréntesis generan un grupo de caracteres
+#Sirven para agrupar carateres
+
+#La barra | indica una entre varias opciones
+
+#Signo ? especifica que un conjunto caracteres es opcional
+
+#Llaves {} repetir una cantidad de n veces una expresión regular
+
+#El asterisco * para encontrar algo que se encuentra 
+#repetido 0 o más veces
+
+#Con el de suma + para encontrar algo que se encuentra repetido
+#Una o más veces
+
+#Caret ^ representa el inicio de un string
+
+#El dolar $ representa el final de un string
+
+library(stringr)
+#str_extract usuario
+#str_locate usuario[1:7]
+#detect true
+str_extract(
+  string = c("Nov", "Nov.", "November", "Noventa", "Noviembre"), 
+  pattern = "^[nN]ov(\\.|ember|iembre)?$"
+  )
+str_locate(
+  string = c("Nov", "Nov.", "November", "Noventa", "Noviembre"), 
+  pattern = "^[nN]ov(\\.|ember|iembre)?$"
+)
+index =str_detect(
+  string = c("Nov", "Nov.", "November", "Noventa", "Noviembre"), 
+  pattern = "^[nN]ov(\\.|ember|iembre)?$"
+)
+df <- data.frame(
+  mes = c("Nov", "nov.", "November", "Noventa", "Noviembre"),
+  anio = c(1,2,3,4,5),
+  stringsAsFactors = FALSE
+)
+df[index, ]
+df_new = df[index, ] %>% dplyr::mutate(mes ="Noviembre")
+df_new
+
+## year with or without century
+str_detect(
+  string = c("2019", "19", "2015", "10", "08", "96", "69", "1975", "2002"), 
+  pattern = "^(20)?[0-1]\\d$"
+)
