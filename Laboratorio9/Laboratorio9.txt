@@ -1,5 +1,6 @@
 #Rmarkdown
 Aquí se sacaron los tweets y se hizo la parte de regex
-
+https://github.com/mfperez2019/DataWranglingR/blob/master/Laboratorio9/Laboratorio9.md
 #Python
 Se hizo todo lo demás
+https://github.com/mfperez2019/DataWranglingR/blob/master/Laboratorio9/Laboratorio9.ipynb

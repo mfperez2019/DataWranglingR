@@ -19,8 +19,9 @@ tw <- twitteR::searchTwitter('#Metoo', n = 1000, since = '2019-10-23', retryOnRa
 
 df <- twitteR::twListToDF(tw)
 df %>% head() %>% View()
+library(stringr)
+df$Handle <- str_extract(string = df$text, pattern = "@[A-z]+")
 
-
-write_csv(df,"tweets3.csv")
+write_csv(df,"tweets4.csv")
 
 ```
