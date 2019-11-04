@@ -1,0 +1,9 @@
+"0","datos1 %>%  plot_ly(x = ~ratingsmean, y = ~popularity, type = ""scatter"")"
+"2","No scatter mode specifed:
+  Setting the mode to markers
+  Read more about this attribute -> https://plot.ly/r/reference/#scatter-mode
+"
+"2","No scatter mode specifed:
+  Setting the mode to markers
+  Read more about this attribute -> https://plot.ly/r/reference/#scatter-mode
+"

@@ -1,8 +1,0 @@
-"0","library(readr)"
-"0","library(dplyr)"
-"0","library(plotly)"
-"0","library(DataExplorer)"
-"0","ratings1 <- ratings %>%  group_by(movieId) %>%"
-"0","  summarise(ratingsmean = mean(rating)) %>% View()"
-"2","Error: Column `movieId` is unknown
-"

@@ -18,17 +18,16 @@ library(dplyr)
 library(plotly)
 library(DataExplorer)
 ratings1 <- ratings %>%  group_by(movieId) %>%
-  summarise(ratingsmean = mean(rating)) %>% View()
-glimpse(ratings)
- 
+  summarise(ratingsmean = mean(rating))
+
 ```
 
 ```{r}
-plot_str(ratings)
+plot_str(ratings1)
 ```
 
 ```{r}
-introduce(ratings) %>% View()
+introduce(ratings1) %>% View()
 ```
 
 ```{r}
@@ -45,17 +44,17 @@ introduce(movies) %>% View()
 ```
 
 ```{r}
-colnames(ratings)[colnames(ratings)=="movieId"] <- "id"
+colnames(ratings1)[colnames(ratings1)=="movieId"] <- "id"
 ```
 
 ```{r}
 library(tidyverse)
 movies <- as_tibble(movies)
-ratings <- as_tibble(ratings)
+ratings1 <- as_tibble(ratings1)
 ```
 
 ```{r}
-datos <- left_join(movies, ratings, by = "id")
+datos <- left_join(movies, ratings1, by = "id")
 colSums(is.na(datos))
 ```
 
@@ -99,11 +98,17 @@ plot_histogram(datos1)
 ```
 
 ```{r}
-datos1 %>%  plot_ly(x = ~rating_mean, y = ~popularity, type = "scatter")
+datos1 %>%  plot_ly(x = ~ratingsmean, y = ~popularity, type = "scatter")
 ```
 
 ```{r}
 #Conclusiones
+#Se hizo una media de los rating para cada id de la película y poder analizar mejor la data
+#Se pueden botar las columnas de budget y revenue ya que tienen en su mayoría datos nulos.
+#Con introduce se puede ver cuáles varibales son discretas o continuas
+#Con glimpse podemos ver cuáles variables son categóricas o númericas
+##Se borraron las filas que contienen NA en estas las columnas donde los missing values eran pocos
+##Existe correlación entre vote count y popularity, ya que si era popular es posible que mucha gente lo viera. Las demas correlaciones no son significativas.
 
 ```
 
