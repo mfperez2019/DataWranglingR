@@ -1,0 +1,109 @@
+---
+title: "Lab10"
+author: "Mafer Pérez"
+date: "2 de noviembre de 2019"
+output: rmarkdown::github_document
+---
+
+```{r}
+library(readr)
+library(dplyr)
+movies <- read_csv(file = "C:/Users/Mafer/Desktop/DataW/movies.csv") %>% select(-X1)
+ratings <- read_csv(file = "C:/Users/Mafer/Desktop/DataW/ratings.csv") %>% select(-X1)
+```
+
+```{r}
+library(readr)
+library(dplyr)
+library(plotly)
+library(DataExplorer)
+ratings1 <- ratings %>%  group_by(movieId) %>%
+  summarise(ratingsmean = mean(rating)) %>% View()
+glimpse(ratings)
+ 
+```
+
+```{r}
+plot_str(ratings)
+```
+
+```{r}
+introduce(ratings) %>% View()
+```
+
+```{r}
+movies %>% View()
+glimpse(movies)
+```
+
+```{r}
+plot_str(movies)
+```
+
+```{r}
+introduce(movies) %>% View()
+```
+
+```{r}
+colnames(ratings)[colnames(ratings)=="movieId"] <- "id"
+```
+
+```{r}
+library(tidyverse)
+movies <- as_tibble(movies)
+ratings <- as_tibble(ratings)
+```
+
+```{r}
+datos <- left_join(movies, ratings, by = "id")
+colSums(is.na(datos))
+```
+
+```{r}
+introduce(datos) %>% View()
+```
+
+```{r}
+datos[datos == 0] <- NA
+summary(datos)
+```
+
+```{r}
+plot_missing(datos)
+#La columna budget y revenue tienen muchos NA's por lo que sería mejor no tomarlas en cuenta para el análisis
+```
+
+```{r}
+drops <- c("revenue","budget")
+datos <- datos[ , !(names(datos) %in% drops)]
+```
+
+```{r}
+plot_missing(datos)
+```
+
+```{r}
+datos1 <- na.omit(datos) 
+```
+
+```{r}
+summary(datos1)
+```
+
+```{r}
+plot_correlation(datos1)
+```
+
+```{r}
+plot_histogram(datos1)
+```
+
+```{r}
+datos1 %>%  plot_ly(x = ~rating_mean, y = ~popularity, type = "scatter")
+```
+
+```{r}
+#Conclusiones
+
+```
+

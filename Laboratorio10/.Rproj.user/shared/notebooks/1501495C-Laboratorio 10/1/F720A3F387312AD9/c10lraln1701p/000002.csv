@@ -1,0 +1,2 @@
+"0","drops <- c(""revenue"",""budget"")"
+"0","datos[ , !(names(datos) %in% drops)]"

@@ -1,0 +1,4 @@
+"0","datos <- left_join(movies, ratings, by = c(""movieId"",""id""))"
+"2","Error: `by` can't contain join column `movieId` which is missing from LHS
+[90mCall `rlang::last_error()` to see a backtrace[39m
+"

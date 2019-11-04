@@ -1,0 +1,3 @@
+"0","library(tidyverse)"
+"0","movies <- as_tibble(movies)"
+"0","ratings <- as_tibble(ratings)"
