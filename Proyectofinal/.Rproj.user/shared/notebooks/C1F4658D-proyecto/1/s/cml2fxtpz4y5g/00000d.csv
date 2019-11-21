@@ -1,3 +1,0 @@
-"0","lugarresidencia <- departamentos %>% filter(llave ==""residencia"") "
-"0","resi <- plot_ly(x = lugarresidencia$caract, y = lugarresidencia$valor, type = 'bar')"
-"0","resi"

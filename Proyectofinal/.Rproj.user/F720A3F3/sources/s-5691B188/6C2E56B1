@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574355938848.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6C2E56B1",
+    "lastKnownWriteTime" : 8316213587989582624,
+    "last_content_update" : 1574355938848,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "13E9D26B",
+        "caption" : "carac_dep",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=carac_dep&cache_key=13E9D26B",
+        "displayedObservations" : 946,
+        "environment" : "",
+        "object" : "carac_dep",
+        "preview" : 0,
+        "totalObservations" : 946,
+        "variables" : 5
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

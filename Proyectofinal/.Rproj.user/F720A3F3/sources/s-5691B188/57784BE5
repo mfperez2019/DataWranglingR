@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574356591323.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "57784BE5",
+    "lastKnownWriteTime" : 19984925217259631,
+    "last_content_update" : 1574356591323,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "BA68A4E3",
+        "caption" : "departamentos",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=departamentos&cache_key=BA68A4E3",
+        "displayedObservations" : "5280",
+        "environment" : "",
+        "object" : "departamentos",
+        "preview" : "0",
+        "totalObservations" : "5280",
+        "variables" : "5"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

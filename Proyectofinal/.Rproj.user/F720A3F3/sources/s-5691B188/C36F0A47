@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574325231135.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C36F0A47",
+    "lastKnownWriteTime" : 19984925217259631,
+    "last_content_update" : 1574325231135,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "6B0957B8",
+        "caption" : "empleo_dep",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=empleo_dep&cache_key=6B0957B8",
+        "displayedObservations" : "154",
+        "environment" : "",
+        "object" : "empleo_dep",
+        "preview" : "0",
+        "totalObservations" : "154",
+        "variables" : "5"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
