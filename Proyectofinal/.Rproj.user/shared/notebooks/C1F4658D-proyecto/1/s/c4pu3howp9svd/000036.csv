@@ -1,8 +1,0 @@
-"0","#Población por sexo"
-"0","hombres <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave==""sexo"") %>% filter(caract==""Hombre"")"
-"0","hombre <- hombres$valor"
-"0","mujeres <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave==""sexo"") %>% filter(caract==""Mujer"")"
-"0","mujer <- mujeres$valor"
-"0","dep <- hombres$Departamento"
-"0","p <- plot_ly(x = dep, y = hombre, type = 'bar', name = 'Hombre') %>% add_trace(y = mujer, name = 'Mujer') "
-"0","p"

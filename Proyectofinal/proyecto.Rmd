@@ -167,6 +167,8 @@ plot_ly(
 
 ```{r}
 #Población por sexo
+totalpob <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave=="sexo")
+totalsuma <- sum(totalpob$valor)
 hombres <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave=="sexo") %>% filter(caract=="Hombre")
 hombre <- hombres$valor
 mujeres <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave=="sexo") %>% filter(caract=="Mujer")
@@ -174,6 +176,9 @@ mujer <- mujeres$valor
 dep <- hombres$Departamento
 p <- plot_ly(x = dep, y = hombre, type = 'bar', name = 'Hombre') %>% add_trace(y = mujer, name = 'Mujer') 
 p
+porcentajehombres <- sum(hombres$valor)/totalsuma
+porcentajemujeres <- sum(mujeres$valor)/totalsuma
+plot_ly(x = "hombre", y = porcentajehombres, type = 'bar', name = 'Hombre') %>% add_trace(x= "mujer", y = porcentajemujeres, name = 'Mujer')
 ```
 
 ```{r}
@@ -433,5 +438,35 @@ colnames(df23) <- "PoblacionCesante"
 depart <- cbind(df1,df2,df3,df4,df5,df6,df7,df8,df9,df10,df11,df14,df15,df16,df17,df18,df19,df20,df21,df22,df23,df24,df25)
 depart <- depart[, !duplicated(colnames(depart))]
 plot_correlation(depart)
+```
+
+```{r}
+municipios <- municipios %>% distinct()
+municipios$valor <- as.double(municipios$valor)
+municipios %>% filter(llave=="poblacionsiete") %>% mutate(porcentajepob = valor/sum(valor)) %>% arrange(desc(porcentajepob))
+municipios
+principales <- municipios %>%filter(Municipio%in% c("Guatemala","Mixco", "Villa Nueva","San Pedro Carchá","San Juan Sacatepéquez","Cobán","Quetzaltenango","Escuintla","Villa Canales","Jalapa"))
+
+```
+
+```{r}
+edupormun <- principales %>% filter(llave =="niveleducativo") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Municipio)
+edupormun
+edugeneralmun <- principales %>% filter(llave =="niveleducativo") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)
+edugeneralmun
+```
+
+```{r}
+inasistenciamun <- principales %>% filter(llave =="inasistencia") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Municipio)
+inasistenciamun
+
+```
+
+```{r}
+eduboxmun <- principales %>% filter(llave =="niveleducativo") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')
+eduboxmun
+celboxmun <- principales %>% filter(llave =="celular") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')
+celboxmun
+
 ```
 

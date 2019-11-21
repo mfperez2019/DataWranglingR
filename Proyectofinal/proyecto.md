@@ -239,6 +239,8 @@ plot_ly(
 
 ``` r
 #Población por sexo
+totalpob <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave=="sexo")
+totalsuma <- sum(totalpob$valor)
 hombres <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave=="sexo") %>% filter(caract=="Hombre")
 hombre <- hombres$valor
 mujeres <- departamentos %>% select(Departamento, llave, caract, valor) %>% filter(llave=="sexo") %>% filter(caract=="Mujer")
@@ -249,6 +251,14 @@ p
 ```
 
 ![](proyecto_files/figure-markdown_github/unnamed-chunk-8-1.png)
+
+``` r
+porcentajehombres <- sum(hombres$valor)/totalsuma
+porcentajemujeres <- sum(mujeres$valor)/totalsuma
+plot_ly(x = "hombre", y = porcentajehombres, type = 'bar', name = 'Hombre') %>% add_trace(x= "mujer", y = porcentajemujeres, name = 'Mujer')
+```
+
+![](proyecto_files/figure-markdown_github/unnamed-chunk-8-2.png)
 
 ``` r
 #Población por grupos de edad
@@ -817,3 +827,100 @@ plot_correlation(depart)
 ```
 
 ![](proyecto_files/figure-markdown_github/unnamed-chunk-26-1.png)
+
+``` r
+municipios <- municipios %>% distinct()
+municipios$valor <- as.double(municipios$valor)
+municipios %>% filter(llave=="poblacionsiete") %>% mutate(porcentajepob = valor/sum(valor)) %>% arrange(desc(porcentajepob))
+```
+
+    ## # A tibble: 340 x 6
+    ##    Código Municipio        llave      caract            valor porcentajepob
+    ##    <chr>  <chr>            <chr>      <chr>             <dbl>         <dbl>
+    ##  1 101    Guatemala        poblacion~ Población de 7 ~ 823541        0.0657
+    ##  2 108    Mixco            poblacion~ Población de 7 ~ 413084        0.0330
+    ##  3 115    Villa Nueva      poblacion~ Población de 7 ~ 378827        0.0302
+    ##  4 1609   San Pedro Carchá poblacion~ Población de 7 ~ 190682        0.0152
+    ##  5 110    San Juan Sacate~ poblacion~ Población de 7 ~ 184474        0.0147
+    ##  6 1601   Cobán            poblacion~ Población de 7 ~ 176556        0.0141
+    ##  7 901    Quetzaltenango   poblacion~ Población de 7 ~ 158834        0.0127
+    ##  8 501    Escuintla        poblacion~ Población de 7 ~ 135581        0.0108
+    ##  9 116    Villa Canales    poblacion~ Población de 7 ~ 133606        0.0107
+    ## 10 2101   Jalapa           poblacion~ Población de 7 ~ 130920        0.0104
+    ## # ... with 330 more rows
+
+``` r
+municipios
+```
+
+    ## # A tibble: 62,220 x 5
+    ##    Código Municipio              llave caract             valor
+    ##    <chr>  <chr>                  <chr> <chr>              <dbl>
+    ##  1 101    Guatemala              total Total de personas 923392
+    ##  2 102    Santa Catarina Pinula  total Total de personas  80582
+    ##  3 103    San José Pinula        total Total de personas  79844
+    ##  4 104    San José del Golfo     total Total de personas   7229
+    ##  5 105    Palencia               total Total de personas  70973
+    ##  6 106    Chinautla              total Total de personas 114752
+    ##  7 107    San Pedro Ayampuc      total Total de personas  58609
+    ##  8 108    Mixco                  total Total de personas 465773
+    ##  9 109    San Pedro Sacatepéquez total Total de personas  51292
+    ## 10 110    San Juan Sacatepéquez  total Total de personas 218156
+    ## # ... with 62,210 more rows
+
+``` r
+principales <- municipios %>%filter(Municipio%in% c("Guatemala","Mixco", "Villa Nueva","San Pedro Carchá","San Juan Sacatepéquez","Cobán","Quetzaltenango","Escuintla","Villa Canales","Jalapa"))
+```
+
+``` r
+edupormun <- principales %>% filter(llave =="niveleducativo") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Municipio)
+edupormun
+```
+
+    ## Warning in RColorBrewer::brewer.pal(N, "Set2"): n too large, allowed maximum for palette Set2 is 8
+    ## Returning the palette you asked for with that many colors
+
+    ## Warning in RColorBrewer::brewer.pal(N, "Set2"): n too large, allowed maximum for palette Set2 is 8
+    ## Returning the palette you asked for with that many colors
+
+![](proyecto_files/figure-markdown_github/unnamed-chunk-28-1.png)
+
+``` r
+edugeneralmun <- principales %>% filter(llave =="niveleducativo") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)
+edugeneralmun
+```
+
+    ## Warning in RColorBrewer::brewer.pal(N, "Set2"): n too large, allowed maximum for palette Set2 is 8
+    ## Returning the palette you asked for with that many colors
+
+    ## Warning in RColorBrewer::brewer.pal(N, "Set2"): n too large, allowed maximum for palette Set2 is 8
+    ## Returning the palette you asked for with that many colors
+
+![](proyecto_files/figure-markdown_github/unnamed-chunk-28-2.png)
+
+``` r
+inasistenciamun <- principales %>% filter(llave =="inasistencia") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Municipio)
+inasistenciamun
+```
+
+    ## Warning in RColorBrewer::brewer.pal(N, "Set2"): n too large, allowed maximum for palette Set2 is 8
+    ## Returning the palette you asked for with that many colors
+
+    ## Warning in RColorBrewer::brewer.pal(N, "Set2"): n too large, allowed maximum for palette Set2 is 8
+    ## Returning the palette you asked for with that many colors
+
+![](proyecto_files/figure-markdown_github/unnamed-chunk-29-1.png)
+
+``` r
+eduboxmun <- principales %>% filter(llave =="niveleducativo") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')
+eduboxmun
+```
+
+![](proyecto_files/figure-markdown_github/unnamed-chunk-30-1.png)
+
+``` r
+celboxmun <- principales %>% filter(llave =="celular") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')
+celboxmun
+```
+
+![](proyecto_files/figure-markdown_github/unnamed-chunk-30-2.png)

@@ -1,0 +1,16 @@
+"0","plot_ly(x = ""hombre"", y = porcentajehombres, type = 'bar', name = 'Hombre') %>% add_trace(x= ""mujer"", y = porcentajemujeres, name = 'Mujer')
+"
+"2","Warning messages:
+"
+"2","1: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","2: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","3: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","4: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","5: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","6: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
