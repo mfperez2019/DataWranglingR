@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574302617298.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "1358705865",
+    "id" : "976A4116",
+    "lastKnownWriteTime" : 1572849139,
+    "last_content_update" : 1572849139,
+    "path" : "C:/Users/Mafer/Desktop/DataW/EDA.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "25,0",
+        "scrollLine" : "15"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

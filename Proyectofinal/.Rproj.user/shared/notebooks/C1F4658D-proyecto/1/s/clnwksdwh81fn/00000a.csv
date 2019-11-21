@@ -1,0 +1,3 @@
+"0","#recordar"
+"0","recordarbox <- departamentos %>% filter(llave ==""recordar"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box', color = ~caract)"
+"0","recordarbox"

@@ -1,0 +1,49 @@
+"0","library(readr)"
+"2","Warning messages:
+"
+"2","1: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","2: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","3: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","4: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","5: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","6: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","7: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","8: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","9: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"2","10: Unknown or uninitialised column: 'Cï¿½digo'. 
+"
+"0","library(dplyr)"
+"0","library(lubridate)"
+"0","library(readxl)"
+"0","library(openxlsx)"
+"0","#función para importar las tablas#"
+"0","import_dep <- function(file, start_column =2, start_row=9){"
+"0","  datos <- read_xlsx(file, range=cell_limits(c(start_row, start_column),c(32,NA)))"
+"0","  return(datos)"
+"0","}"
+"0","carac_dep <- import_dep(""ProyectoFinal/caracteristicas_departamental.xlsx"")"
+"0","edu_dep <- import_dep(""ProyectoFinal/educacion_departamental.xlsx"")"
+"0","empleo_dep <- import_dep(""ProyectoFinal/empleo_departamental.xlsx"")"
+"0","hogar_dep <- import_dep(""ProyectoFinal/hogares_departamental.xlsx"")"
+"0","pob_dep <- import_dep(""ProyectoFinal/poblacion_departamental.xlsx"")"
+"0","pueblo_dep <- import_dep(""ProyectoFinal/pueblo_departamental.xlsx"")"
+"0","tec_dep <- import_dep(""ProyectoFinal/tecnologia_departamental.xlsx"")"
+"0","vivi_dep <- import_dep(""ProyectoFinal/vivienda_departamental.xlsx"")"
+"0","#Cambiar nombres de las tablas"
+"0","names(carac_dep) <- c(NA, NA, ""total"", ""nacimiento"", ""nacimiento"", ""nacimiento"", ""nacimiento"", ""residencia"", ""residencia"", ""residencia"", ""residencia"", ""residencia"",""poblacioncuatro"", ""vista"", ""vista"", ""vista"", ""escucha"", ""escucha"", ""escucha"", ""caminar"", ""caminar"", ""caminar"", ""recordar"", ""recordar"", ""recordar"",""cuidado"", ""cuidado"", ""cuidado"",""comunicacion"", ""comunicacion"", ""comunicacion"",""totalfertil"", ""hijosnacidos"",""hijosnacidos"",""hijosnacidos"",""hijosnacidos"",""hijosnacidos"",""hijosnacidos"",""hijosnacidos"", ""hijossobrevivientes"",""hijossobrevivientes"",""hijossobrevivientes"",""hijossobrevivientes"",""hijossobrevivientes"",""hijossobrevivientes"" )"
+"0","names(edu_dep) <- c(NA,NA,""niveleducativo"", ""niveleducativo"",""niveleducativo"",""niveleducativo"",""niveleducativo"",""niveleducativo"",""niveleducativo"",""niveleducativo"",""niveleducativo"", ""inasistencia"",""inasistencia"",""inasistencia"",""inasistencia"",""inasistencia"",""inasistencia"",""inasistencia"",""inasistencia"",""inasistencia"", ""poblacionsiete"", ""alfabetismo"",""alfabetismo"", ""asistencia"", ""asistencia"", ""lugarestudio"", ""lugarestudio"", ""lugarestudio"", ""lugarestudio"")"
+"0","names(empleo_dep) <- c(NA,NA,""poblacionsiete"", ""activa"", ""ocupada"", ""cesante"", ""aspirante"", ""nodeclarado"", ""uno"")"
+"0","names(hogar_dep) <- c(NA, NA, ""distribucion"", ""distribucion"", ""promedio"", ""promedio"")"
+"0","names(pob_dep) <- c(NA,NA, ""total"", ""sexo"", ""sexo"", ""edad"", ""edad"", ""edad"",""edad"",""edad"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""grupo"",""area"",""area"", ""parentesco"",""parentesco"",""parentesco"",""parentesco"",""parentesco"",""parentesco"",""parentesco"",""parentesco"",""parentesco"",""parentesco"",""parentesco"",""colectiva"", ""poblaciondiez"", ""estadocivil"",""estadocivil"",""estadocivil"",""estadocivil"",""estadocivil"",""estadocivil"")"
+"0","names(pueblo_dep) <- c(NA, NA, ""total"",""pueblo"",""pueblo"",""pueblo"",""pueblo"",""pueblo"",""pueblo"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""comunidad"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"",""Idioma"", ""Idioma"", ""Idioma"", ""Idioma"", ""Idioma"",""Idioma"", ""Idioma"", ""Idioma"", ""Idioma"",""poblacioncuatro"")"
+"0","names(tec_dep) <- c(NA, NA, ""poblacionsiete"", ""celular"", ""celular"", ""celular"", ""computadora"", ""computadora"", ""computadora"", ""internet"", ""internet"",""internet"", ""uso"", ""uso"",""uso"",""uso"")"
+"0","names(vivi_dep) <- c(NA,NA,""totalvivi"", ""vivienda"", ""vivienda"",""tipovivienda"",""tipovivienda"",""tipovivienda"",""tipovivienda"",""tipovivienda"",""tipovivienda"",""tipovivienda"", ""tipoocupacion"",""tipoocupacion"",""tipoocupacion"",""tipoocupacion"",""pared"",""pared"",""pared"",""pared"",""pared"",""pared"",""pared"",""pared"",""pared"",""pared"",""pared"",""techo"",""techo"",""techo"",""techo"",""techo"",""techo"",""techo"",""techo"",""piso"",""piso"",""piso"",""piso"",""piso"",""piso"",""piso"",""piso"")"

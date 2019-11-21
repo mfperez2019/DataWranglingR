@@ -1,0 +1,31 @@
+"0","#Vista"
+"0","vistageneral <- departamentos %>% filter(llave ==""vista"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)"
+"0","vistadep <- departamentos %>% filter(llave ==""vista"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Departamento)"
+"0","#Escucha"
+"0","escuchadep<- departamentos %>% filter(llave ==""escucha"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Departamento)"
+"0","escuchageneral <- departamentos %>% filter(llave ==""escucha"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)"
+"0","#caminar"
+"0","caminargeneral <- departamentos %>% filter(llave ==""caminar"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)"
+"0","caminardep <- departamentos %>% filter(llave ==""caminar"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Departamento)"
+"0","#recordar"
+"0","recordargeneral <- departamentos %>% filter(llave ==""recordar"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)"
+"0","recordardep <- departamentos %>% filter(llave ==""recordar"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Departamento)"
+"0","#cuidado"
+"0","cuidadogeneral <- departamentos %>% filter(llave ==""cuidado"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)"
+"0","cuidadodep <- departamentos %>% filter(llave ==""cuidado"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Departamento)"
+"0","#comunicación"
+"0","comunicaciongeneral <- departamentos %>% filter(llave ==""comunicacion"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~caract)"
+"0","comudep <- departamentos %>% filter(llave ==""comunicacion"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Departamento)"
+"0","vistadep"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"

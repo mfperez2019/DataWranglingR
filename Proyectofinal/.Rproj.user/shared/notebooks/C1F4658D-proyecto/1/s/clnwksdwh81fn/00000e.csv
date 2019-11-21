@@ -1,0 +1,2 @@
+"0","celbox <- departamentos %>% filter(llave ==""celular"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')"
+"0","celbox"

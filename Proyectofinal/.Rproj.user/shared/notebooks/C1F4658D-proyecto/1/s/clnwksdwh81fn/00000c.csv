@@ -1,0 +1,8 @@
+"0","#cuidado"
+"0","cuidadobox <- departamentos %>% filter(llave ==""cuidado"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')"
+"0","#comunicación"
+"0","comunicacionbox <- departamentos %>% filter(llave ==""comunicacion"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')"
+"0","#Hijos"
+"0","hijosbox <- departamentos %>% filter(llave ==""hijosnacidos"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')"
+"0","edubox <- departamentos %>% filter(llave ==""niveleducativo"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')"
+"0","edubox"

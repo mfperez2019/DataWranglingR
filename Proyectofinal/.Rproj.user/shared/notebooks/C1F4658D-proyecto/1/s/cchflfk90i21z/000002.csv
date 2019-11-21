@@ -1,0 +1,17 @@
+"0","celdep <- departamentos %>% filter(llave ==""celular"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'bar', color = ~Departamento)"
+"2","There were 26 warnings (use warnings() to see them)"
+"2","
+"
+"0","celdep"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"
+"2","n too large, allowed maximum for palette Set2 is 8
+Returning the palette you asked for with that many colors
+"

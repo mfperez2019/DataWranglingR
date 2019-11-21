@@ -1,0 +1,3 @@
+"0","#Tablas de departamentos y de municipios"
+"0","departamentos <- rbind(carac_dep, edu_dep, empleo_dep, hogar_dep, pob_dep, pueblo_dep, tec_dep, vivi_dep)"
+"0","municipios <- rbind(carac_mun, edu_mun, empleo_mun, hogar_mun, pob_mun, tec_mun, vivi_mun)"

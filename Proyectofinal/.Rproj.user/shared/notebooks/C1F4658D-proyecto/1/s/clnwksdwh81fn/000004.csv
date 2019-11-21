@@ -1,0 +1,3 @@
+"0","#Vista"
+"0","vistabox <- departamentos %>% filter(llave ==""vista"") %>%  plot_ly(x = ~caract, y = ~valor, type = 'box')"
+"0","vistabox"

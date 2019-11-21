@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1573067764111.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B97CE590",
+    "lastKnownWriteTime" : 1574325856,
+    "last_content_update" : 1574325856366,
+    "path" : "C:/Users/Mafer/Desktop/GitHub/DataWranglingR/Proyectofinal/proyecto.Rmd",
+    "project_path" : "proyecto.Rmd",
+    "properties" : {
+        "cursorPosition" : "402,55",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "383",
+        "tempName" : "Untitled1",
+        "working_dir" : "project"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
